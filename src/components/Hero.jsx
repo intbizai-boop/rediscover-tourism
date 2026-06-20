@@ -75,7 +75,9 @@ export default function Hero() {
               className="text-balance font-display text-4xl font-medium leading-[1.05] text-cream sm:text-5xl lg:text-6xl"
             >
               Rediscover Asia.
-              <span className="block text-sunset-gold">We Take Care Of The Rest.</span>
+              <span className="block text-sunset-gold">
+                We Take Care <br className="sm:hidden" /> Of The Rest.
+              </span>
             </motion.h1>
 
             <motion.p
