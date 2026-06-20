@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #08101b;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-ink text-cream font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #d4af37;
+  color: #08101b;
+}
+
+/* Honor reduced-motion globally as a safety net for CSS transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  .micro-label {
+    @apply font-mono text-xs uppercase tracking-label text-sunset-gold;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+}
+
+/* Subtle film grain / vignette helper for cinematic sections. */
+.cinematic-overlay {
+  background: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(8, 16, 27, 0) 40%,
+    rgba(8, 16, 27, 0.85) 100%
+  );
+}
