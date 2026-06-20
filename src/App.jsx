@@ -7,6 +7,7 @@ import FinalCta from './components/FinalCta.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
+import AmbientMusic from './components/AmbientMusic.jsx';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <AmbientMusic />
     </>
   );
 }

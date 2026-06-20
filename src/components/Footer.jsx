@@ -44,9 +44,8 @@ export default function Footer() {
 
         <div className="flex flex-col gap-3">
           <h2 className="micro-label mb-1">Contact</h2>
-          <span className="text-sm text-cream font-medium">Vin (Travel Partner)</span>
+          <span className="text-sm text-cream font-medium">Vinesh Narayan (Travel Partner)</span>
           <a href="tel:07710461488" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">07710461488</a>
-          <a href="mailto:binesh.narayan76@gmail.com" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">binesh.narayan76@gmail.com</a>
           <span className="micro-label mb-1 mt-4">Website</span>
           <a href="https://www.RediscoverTourism.com" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">RediscoverTourism.com</a>
         </div>
