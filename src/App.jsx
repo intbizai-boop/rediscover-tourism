@@ -2,7 +2,6 @@ import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import WhyRediscover from './components/WhyRediscover.jsx';
 import Destinations from './components/Destinations.jsx';
-import Difference from './components/Difference.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import FinalCta from './components/FinalCta.jsx';
 import Contact from './components/Contact.jsx';
@@ -22,7 +21,6 @@ export default function App() {
         <Hero />
         <WhyRediscover />
         <Destinations />
-        <Difference />
         <HowItWorks />
         <FinalCta />
         <Contact />

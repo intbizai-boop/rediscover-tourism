@@ -60,20 +60,6 @@ export const DESTINATIONS = [
   },
 ];
 
-export const DIFFERENCE = [
-  {
-    stage: 'Before',
-    lines: ['Travel planning stress.', 'Research overload.', 'Too many decisions.'],
-  },
-  {
-    stage: 'During',
-    lines: ['Everything coordinated.', 'Trusted support.', 'Seamless local experiences.'],
-  },
-  {
-    stage: 'After',
-    lines: ['Meaningful memories.', 'Deeper connections.', 'Stories worth sharing.'],
-  },
-];
 
 export const STEPS = [
   { n: 1, title: 'Tell Us About Your Dream Journey' },
