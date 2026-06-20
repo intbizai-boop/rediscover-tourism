@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks.jsx';
 import FinalCta from './components/FinalCta.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }
