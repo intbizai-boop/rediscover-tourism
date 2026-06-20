@@ -10,7 +10,7 @@ export default function AmbientMusic() {
   useEffect(() => {
     const audio = new Audio('/ambient.mp3');
     audio.loop = true;
-    audio.volume = 0.25; // Subtle, non-intrusive volume level
+    audio.volume = 0.40; // Subtle, non-intrusive volume level
     audioRef.current = audio;
 
     return () => {
