@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20">
       <div className="section-shell grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionHeading label="Contact" title="Start Your Journey" align="left">
-          Skip the forms. Connect directly with Vin, your dedicated travel partner, to start crafting your bespoke experience across Asia.
+          Skip the forms. Connect directly with Vinesh Narayan, your dedicated travel partner, to start crafting your bespoke experience across Asia.
         </SectionHeading>
 
         <motion.div
@@ -29,7 +29,7 @@ export default function Contact() {
               </div>
               <div>
                 <span className="micro-label font-mono text-[10px] tracking-widest text-sunset-gold">Your Personal Travel Partner</span>
-                <h3 className="font-display text-3xl font-medium text-cream leading-tight mt-0.5">Vin</h3>
+                <h3 className="font-display text-3xl font-medium text-cream leading-tight mt-0.5">Vinesh Narayan</h3>
               </div>
             </div>
 
@@ -48,7 +48,7 @@ export default function Contact() {
                   <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.122-4.1-6.924-6.924l1.293-.97a1.248 1.248 0 0 0 .417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                   </svg>
-                  Call Vin Now: 07710461488
+                  Call Vinesh Narayan Now: 07710461488
                 </a>
 
                 <a
