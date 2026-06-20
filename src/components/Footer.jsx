@@ -46,6 +46,7 @@ export default function Footer() {
           <h2 className="micro-label mb-1">Contact</h2>
           <span className="text-sm text-cream font-medium">Vinesh Narayan (Travel Partner)</span>
           <a href="tel:07710461488" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">07710461488</a>
+          <a href="https://wa.me/447710461488" target="_blank" rel="noopener noreferrer" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">WhatsApp: +447710461488</a>
           <span className="micro-label mb-1 mt-4">Website</span>
           <a href="https://www.RediscoverTourism.com" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">RediscoverTourism.com</a>
         </div>
