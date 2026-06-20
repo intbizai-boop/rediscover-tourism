@@ -26,7 +26,6 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster="/WhatsApp_Image_2026-06-19_at_20.21.51.jpeg"
         aria-hidden="true"
         tabIndex={-1}
       >
@@ -41,7 +40,6 @@ export default function Hero() {
         loop
         playsInline
         preload="metadata"
-        poster="/WhatsApp_Image_2026-06-19_at_20.21.51.jpeg"
         aria-hidden="true"
         tabIndex={-1}
       >
