@@ -43,6 +43,18 @@ export const DESTINATIONS = [
     body: 'Luxury escapes, island adventures, and rich heritage.',
   },
   {
+    name: 'Vietnam',
+    body: 'Serene landscapes, ancient cities, and rich culinary heritage.',
+  },
+  {
+    name: 'Bali',
+    body: 'Tropical sanctuaries, spiritual wellness, and volcanic vistas.',
+  },
+  {
+    name: 'Bhutan',
+    body: 'Mystical peaks, ancient monasteries, and peaceful valleys.',
+  },
+  {
     name: 'Middle East',
     body: 'History, wonder, and modern luxury.',
   },
@@ -76,6 +88,9 @@ export const DESTINATION_INTERESTS = [
   'India',
   'Sri Lanka',
   'Thailand',
+  'Vietnam',
+  'Bali',
+  'Bhutan',
   'Middle East',
   'Not sure yet',
 ];

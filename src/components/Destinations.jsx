@@ -5,10 +5,13 @@ import SectionHeading from './SectionHeading.jsx';
 
 // High-quality destination imagery.
 const IMAGES = {
-  India: '/india_destination.png',
-  'Sri Lanka': '/sri_lanka_destination.png',
-  Thailand: '/thailand_destination.png',
-  'Middle East': '/middle_east_destination.png',
+  India: '/india_destination.webp',
+  'Sri Lanka': '/sri_lanka_destination.webp',
+  Thailand: '/thailand_destination.webp',
+  Vietnam: '/vietnam_destination.webp',
+  Bali: '/bali_destination.webp',
+  Bhutan: '/bhutan_destination.webp',
+  'Middle East': '/middle_east_destination.webp',
 };
 
 export default function Destinations() {
