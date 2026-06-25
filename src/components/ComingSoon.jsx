@@ -8,137 +8,187 @@ export default function ComingSoon() {
 
   // Interactive plane state
   const planeRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
   const [isRolling, setIsRolling] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
 
-  // Motion values for relative plane offset
-  const dragX = useMotionValue(0);
-  const dragY = useMotionValue(0);
+  // Motion values for actual absolute coordinate position (relative to viewport)
+  const planeX = useMotionValue(0);
+  const planeY = useMotionValue(0);
+  
+  // Smooth spring physics for plane movement following cursor
+  const smoothX = useSpring(planeX, { stiffness: 50, damping: 15 });
+  const smoothY = useSpring(planeY, { stiffness: 50, damping: 15 });
 
   // Rotation motion values (starts at -45 to align with default top-right pointing SVG)
   const rotateVal = useMotionValue(-45);
-  const smoothRotate = useSpring(rotateVal, { stiffness: 100, damping: 15 });
+  const smoothRotate = useSpring(rotateVal, { stiffness: 85, damping: 14 });
 
-  // Handle window mouse move
+  const prevXRef = useRef(0);
+  const prevYRef = useRef(0);
+
+  // Initialize target position to center-top on mount
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 3;
+    planeX.set(cx);
+    planeY.set(cy);
+    prevXRef.current = cx;
+    prevYRef.current = cy;
   }, []);
 
-  // Point plane towards mouse when not dragging
+  // Update target coordinates to follow the cursor (PC) or touch (mobile)
   useEffect(() => {
-    if (isDragging || isRolling || !planeRef.current) return;
+    const handleMouseMove = (e) => {
+      // Offset slightly (+25px) so the plane floats near the cursor rather than directly under it,
+      // preventing it from blocking normal hover/click interactions on links and inputs
+      planeX.set(e.clientX + 25);
+      planeY.set(e.clientY + 25);
+    };
 
-    const rect = planeRef.current.getBoundingClientRect();
-    const planeCenterX = rect.left + rect.width / 2;
-    const planeCenterY = rect.top + rect.height / 2;
+    const handleTouchStart = (e) => {
+      if (e.target.closest('form') || e.target.closest('a') || e.target.closest('button')) return;
+      if (e.touches && e.touches[0]) {
+        planeX.set(e.touches[0].clientX);
+        planeY.set(e.touches[0].clientY);
+      }
+    };
 
-    const dx = mousePos.x - planeCenterX;
-    const dy = mousePos.y - planeCenterY;
-    const distance = Math.sqrt(dx * dx + dy * dy);
+    const handleTouchMove = (e) => {
+      if (e.target.closest('form') || e.target.closest('a') || e.target.closest('button')) return;
+      if (e.touches && e.touches[0]) {
+        planeX.set(e.touches[0].clientX);
+        planeY.set(e.touches[0].clientY);
+      }
+    };
 
-    if (distance > 30) {
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-      const targetAngle = angle - 45; // default SVG points up-right
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-      let diff = targetAngle - rotateVal.get();
-      // Normalize difference to prevent 360-degree snaps
-      diff = ((diff + 180) % 360) - 180;
-      rotateVal.set(rotateVal.get() + diff);
-    }
-  }, [mousePos, isDragging, isRolling]);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [planeX, planeY]);
 
-  // Periodic particle emission for trailing stardust when floating
+  // Point plane in direction of travel path
+  useEffect(() => {
+    const unsubscribeX = smoothX.on("change", (latestX) => {
+      const latestY = smoothY.get();
+      const dx = latestX - prevXRef.current;
+      const dy = latestY - prevYRef.current;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist > 1.2) {
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        const targetAngle = angle - 45; // default up-right SVG offset
+
+        let diff = targetAngle - rotateVal.get();
+        diff = ((diff + 180) % 360) - 180;
+        rotateVal.set(rotateVal.get() + diff);
+      }
+      prevXRef.current = latestX;
+    });
+
+    const unsubscribeY = smoothY.on("change", (latestY) => {
+      const latestX = smoothX.get();
+      const dx = latestX - prevXRef.current;
+      const dy = latestY - prevYRef.current;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist > 1.2) {
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        const targetAngle = angle - 45;
+
+        let diff = targetAngle - rotateVal.get();
+        diff = ((diff + 180) % 360) - 180;
+        rotateVal.set(rotateVal.get() + diff);
+      }
+      prevYRef.current = latestY;
+    });
+
+    return () => {
+      unsubscribeX();
+      unsubscribeY();
+    };
+  }, [smoothX, smoothY, rotateVal]);
+
+  // Continuous trail particle emission
   useEffect(() => {
     const interval = setInterval(() => {
-      if (isDragging) return;
+      const px = smoothX.get();
+      const py = smoothY.get();
 
-      const px = dragX.get();
-      const py = dragY.get();
+      const dx = px - prevXRef.current;
+      const dy = py - prevYRef.current;
+      const speed = Math.sqrt(dx * dx + dy * dy);
 
-      // Emit particle opposite to the heading direction
-      const rad = (rotateVal.get() + 45) * (Math.PI / 180);
-      const bx = px - Math.cos(rad) * 20;
-      const by = py - Math.sin(rad) * 20;
+      // Only emit if moving or randomly when stationary to keep the trailing puff alive
+      if (speed > 1.5 || Math.random() < 0.25) {
+        const rad = (rotateVal.get() + 45) * (Math.PI / 180);
+        // Spawn slightly behind plane heading
+        const bx = px - Math.cos(rad) * 20;
+        const by = py - Math.sin(rad) * 20;
 
-      const id = Math.random();
-      setParticles((prev) => [
-        ...prev.slice(-40),
-        {
-          id,
-          x: bx,
-          y: by,
-          scale: Math.random() * 0.4 + 0.2,
-          vx: -Math.cos(rad) * 2 + (Math.random() - 0.5) * 0.8,
-          vy: -Math.sin(rad) * 2 + (Math.random() - 0.5) * 0.8,
-        },
-      ]);
+        const id = Math.random();
+        setParticles((prev) => [
+          ...prev.slice(-35),
+          {
+            id,
+            x: bx,
+            y: by,
+            scale: Math.random() * 0.45 + 0.15,
+            vx: -Math.cos(rad) * 1.5 + (Math.random() - 0.5) * 0.6,
+            vy: -Math.sin(rad) * 1.5 + (Math.random() - 0.5) * 0.6,
+          },
+        ]);
 
-      setTimeout(() => {
-        setParticles((prev) => prev.filter((p) => p.id !== id));
-      }, 1000);
-    }, 200);
+        setTimeout(() => {
+          setParticles((prev) => prev.filter((p) => p.id !== id));
+        }, 800);
+      }
+    }, 100);
 
     return () => clearInterval(interval);
-  }, [isDragging, rotateVal]);
+  }, [smoothX, smoothY, rotateVal]);
 
-  // Handle plane drag event
-  const handleDrag = (event, info) => {
-    const dx = info.delta.x;
-    const dy = info.delta.y;
+  // Handle global click to trigger loop-de-loop (barrel roll)
+  useEffect(() => {
+    const handleGlobalClick = (e) => {
+      // If clicked on input fields, buttons, links, or inside forms, ignore
+      if (
+        e.target.closest('form') ||
+        e.target.closest('a') ||
+        e.target.closest('button') ||
+        e.target.closest('input')
+      ) {
+        return;
+      }
+      triggerRoll();
+    };
 
-    if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-      const targetAngle = angle - 45;
-
-      let diff = targetAngle - rotateVal.get();
-      diff = ((diff + 180) % 360) - 180;
-      rotateVal.set(rotateVal.get() + diff);
-    }
-
-    // Spawn drag trail particle
-    const px = dragX.get();
-    const py = dragY.get();
-    const id = Math.random();
-    setParticles((prev) => [
-      ...prev.slice(-40),
-      {
-        id,
-        x: px,
-        y: py,
-        scale: Math.random() * 0.6 + 0.3,
-        vx: -dx * 0.5 + (Math.random() - 0.5) * 0.5,
-        vy: -dy * 0.5 + (Math.random() - 0.5) * 0.5,
-      },
-    ]);
-
-    setTimeout(() => {
-      setParticles((prev) => prev.filter((p) => p.id !== id));
-    }, 800);
-  };
+    window.addEventListener('click', handleGlobalClick);
+    return () => window.removeEventListener('click', handleGlobalClick);
+  }, [isRolling, smoothX, smoothY]);
 
   // Trigger barrel roll / loop
   const triggerRoll = () => {
     if (isRolling) return;
     setIsRolling(true);
 
-    const px = dragX.get();
-    const py = dragY.get();
+    const px = smoothX.get();
+    const py = smoothY.get();
 
     // Spawn particle burst
     const burstParticles = Array.from({ length: 18 }).map(() => {
       const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 4 + 2;
+      const speed = Math.random() * 5 + 3;
       return {
         id: Math.random(),
         x: px,
         y: py,
-        scale: Math.random() * 0.7 + 0.4,
+        scale: Math.random() * 0.75 + 0.35,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
       };
@@ -228,98 +278,8 @@ export default function ComingSoon() {
       {/* ── Main Content Area ── */}
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 py-12 text-center max-w-4xl mx-auto w-full">
         
-        {/* Airplane Area Container */}
-        <div className="relative w-full h-44 flex items-center justify-center mb-6">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {/* Render Sparkle Particles */}
-            {particles.map((p) => (
-              <motion.div
-                key={p.id}
-                initial={{ x: p.x, y: p.y, scale: p.scale, opacity: 1 }}
-                animate={{
-                  x: p.x + (p.vx || (Math.random() - 0.5) * 50),
-                  y: p.y + (p.vy || (Math.random() - 0.5) * 50) + 15,
-                  opacity: 0,
-                  scale: 0.1,
-                }}
-                transition={{ duration: 0.9, ease: 'easeOut' }}
-                className="absolute w-2 h-2 rounded-full pointer-events-none"
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  background: 'radial-gradient(circle, #E8B15B 0%, #D4AF37 100%)',
-                  boxShadow: '0 0 6px rgba(212,175,55,0.8), 0 0 12px rgba(232,177,91,0.4)',
-                }}
-              />
-            ))}
-          </div>
-
-          {/* Draggable and Clickable Airplane */}
-          <motion.div
-            ref={planeRef}
-            drag
-            dragConstraints={{ left: -160, right: 160, top: -100, bottom: 100 }}
-            dragElastic={0.2}
-            style={{
-              x: dragX,
-              y: dragY,
-              rotate: smoothRotate,
-              cursor: isDragging ? 'grabbing' : 'grab',
-              transformStyle: 'preserve-3d',
-            }}
-            animate={
-              isRolling
-                ? {
-                    rotateY: [0, 360],
-                    rotateZ: [rotateVal.get(), rotateVal.get() - 360],
-                    scale: [1, 1.4, 1],
-                  }
-                : {
-                    y: [0, -10, 0],
-                  }
-            }
-            transition={
-              isRolling
-                ? { duration: 0.8, ease: 'easeInOut' }
-                : { y: { duration: 4, repeat: Infinity, ease: 'easeInOut' } }
-            }
-            onDragStart={() => setIsDragging(true)}
-            onDrag={handleDrag}
-            onDragEnd={() => {
-              setIsDragging(false);
-              animate(dragX, 0, { type: 'spring', stiffness: 220, damping: 18 });
-              animate(dragY, 0, { type: 'spring', stiffness: 220, damping: 18 });
-            }}
-            onClick={triggerRoll}
-            className="relative z-20 p-6 touch-none"
-            title="Drag me around or click to do a loop!"
-          >
-            {/* SVG Airplane */}
-            <svg
-              width="60"
-              height="60"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="url(#planeGradient)"
-              strokeWidth="1.25"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="filter drop-shadow-[0_4px_10px_rgba(212,175,55,0.3)] hover:scale-105 transition-transform duration-200"
-            >
-              <defs>
-                <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#F7F4EF" />
-                  <stop offset="60%" stopColor="#E8B15B" />
-                  <stop offset="100%" stopColor="#D4AF37" />
-                </linearGradient>
-              </defs>
-              {/* Paper airplane details */}
-              <path d="M22 2L11 13" />
-              <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-            </svg>
-          </motion.div>
-        </div>
+        {/* Spacer where the airplane element used to reside */}
+        <div className="h-28 w-full" aria-hidden="true" />
 
         {/* Brand Text Header */}
         <p className="font-mono text-xs tracking-[0.25em] text-sunset-gold uppercase mb-4 animate-fade-in">
@@ -452,6 +412,86 @@ export default function ComingSoon() {
           ))}
         </div>
       </footer>
+
+      {/* ── Viewport Particles (Fading trail of sparkles) ── */}
+      <div className="fixed inset-0 pointer-events-none z-40">
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            initial={{ x: p.x, y: p.y, scale: p.scale, opacity: 1 }}
+            animate={{
+              x: p.x + (p.vx || (Math.random() - 0.5) * 50),
+              y: p.y + (p.vy || (Math.random() - 0.5) * 50) + 15,
+              opacity: 0,
+              scale: 0.05,
+            }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="absolute w-2 h-2 rounded-full"
+            style={{
+              left: 0,
+              top: 0,
+              translateX: '-50%',
+              translateY: '-50%',
+              background: 'radial-gradient(circle, #E8B15B 0%, #D4AF37 100%)',
+              boxShadow: '0 0 6px rgba(212,175,55,0.8), 0 0 12px rgba(232,177,91,0.4)',
+            }}
+          />
+        ))}
+      </div>
+
+      {/* ── Viewport Floating Airplane (Continuously follows cursor / clicks) ── */}
+      <motion.div
+        ref={planeRef}
+        className="fixed pointer-events-none z-50 select-none touch-none"
+        style={{
+          left: 0,
+          top: 0,
+          x: smoothX,
+          y: smoothY,
+          rotate: smoothRotate,
+          translateX: '-50%',
+          translateY: '-50%',
+          transformStyle: 'preserve-3d',
+        }}
+        animate={
+          isRolling
+            ? {
+                rotateY: [0, 360],
+                rotateZ: [rotateVal.get(), rotateVal.get() - 360],
+                scale: [1, 1.4, 1],
+              }
+            : {
+                y: [0, -6, 0],
+              }
+        }
+        transition={
+          isRolling
+            ? { duration: 0.8, ease: 'easeInOut' }
+            : { y: { duration: 3, repeat: Infinity, ease: 'easeInOut' } }
+        }
+      >
+        <svg
+          width="52"
+          height="52"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="url(#planeGradient)"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="filter drop-shadow-[0_4px_12px_rgba(212,175,55,0.4)]"
+        >
+          <defs>
+            <linearGradient id="planeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F7F4EF" />
+              <stop offset="60%" stopColor="#E8B15B" />
+              <stop offset="100%" stopColor="#D4AF37" />
+            </linearGradient>
+          </defs>
+          <path d="M22 2L11 13" />
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+        </svg>
+      </motion.div>
     </div>
   );
 }
