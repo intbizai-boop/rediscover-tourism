@@ -1,15 +1,8 @@
-const CACHE_NAME = 'rediscover-tourism-cache-v9';
+const CACHE_NAME = 'mywellbeinghealthcare-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/logo.png',
-  '/india_destination.webp',
-  '/sri_lanka_destination.webp',
-  '/thailand_destination.webp',
-  '/vietnam_destination.webp',
-  '/bali_destination.webp',
-  '/bhutan_destination.webp',
-  '/middle_east_destination.webp'
+  '/logo.png'
 ];
 
 // Install event - Cache critical static assets
