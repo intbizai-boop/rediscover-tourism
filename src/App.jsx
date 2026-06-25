@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import WhyRediscover from './components/WhyRediscover.jsx';
@@ -8,8 +9,22 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 import AmbientMusic from './components/AmbientMusic.jsx';
+import ComingSoon from './components/ComingSoon.jsx';
 
 export default function App() {
+  const [isPreview, setIsPreview] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('preview') === 'true') {
+      setIsPreview(true);
+    }
+  }, []);
+
+  if (!isPreview) {
+    return <ComingSoon />;
+  }
+
   return (
     <>
       <a

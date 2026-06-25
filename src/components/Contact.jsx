@@ -1,59 +1,380 @@
-import { motion } from 'framer-motion';
-import { fadeUp } from '../lib/motion.js';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { fadeUp, stagger } from '../lib/motion.js';
 import SectionHeading from './SectionHeading.jsx';
 
+const FACILITIES = [
+  { value: '3star', label: '3-Star Hotels' },
+  { value: '4star', label: '4-Star Hotels' },
+  { value: 'luxury', label: 'Luxury / 5-Star Resorts' },
+];
+
+const inputClass =
+  'w-full rounded-xl border border-hairline bg-ink/60 px-4 py-3 text-sm text-cream placeholder-cream/30 outline-none transition-all duration-200 focus:border-gold/60 focus:bg-ink/80 focus:ring-1 focus:ring-gold/30';
+
+const labelClass = 'block text-[11px] font-mono tracking-widest uppercase text-sunset-gold mb-1.5';
+
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    destination: '',
+    adults: '',
+    children: '',
+    childrenAges: '',
+    rooms: '',
+    travelDates: '',
+    duration: '',
+    facilities: '',
+    specialRequests: '',
+  });
+
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const set = (field) => (e) =>
+    setForm((prev) => ({ ...prev, [field]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '79714c94-d222-41c0-8b5c-ffa6bc0abfdd',
+          subject: `New Travel Enquiry from ${form.name}`,
+          from_name: 'Rediscover Tourism Contact Form',
+          ...form,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.success === false) {
+        throw new Error(data.message || 'Something went wrong.');
+      }
+
+      setStatus('success');
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        destination: '',
+        adults: '',
+        children: '',
+        childrenAges: '',
+        rooms: '',
+        travelDates: '',
+        duration: '',
+        facilities: '',
+        specialRequests: '',
+      });
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg(err.message);
+    }
+  };
+
   return (
     <section id="contact" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20">
-      <div className="section-shell grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <SectionHeading label="Contact" title="Start Your Journey" align="left">
-          Skip the forms. Connect directly with Vinesh Narayan, your dedicated travel partner, to start crafting your bespoke experience across Asia.
+      {/* Ambient glow */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -translate-y-1/2 flex justify-center"
+        aria-hidden="true"
+      >
+        <div className="h-72 w-[600px] rounded-full bg-gold/5 blur-[100px]" />
+      </div>
+
+      <div className="section-shell">
+        <SectionHeading label="Enquire" title="Plan Your Journey" align="center" className="mb-14">
+          Tell us your dream — we&apos;ll craft every detail. Fill in your travel requirements
+          below and Vinesh will be in touch with a bespoke itinerary.
         </SectionHeading>
 
-        <motion.div
-          variants={fadeUp}
+        <motion.form
+          onSubmit={handleSubmit}
+          variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="relative overflow-hidden rounded-3xl border border-hairline bg-glass p-8 shadow-glass backdrop-blur-md md:p-10"
+          viewport={{ once: true, amount: 0.1 }}
+          className="relative overflow-hidden rounded-3xl border border-hairline bg-glass shadow-glass backdrop-blur-md"
+          noValidate
         >
-          {/* Subtle luxury ambient gold glow in the card corner */}
-          <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gold/10 blur-3xl" aria-hidden="true" />
+          {/* Card glow corners */}
+          <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-gold/10 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-sunset-gold/5 blur-3xl" aria-hidden="true" />
 
-          <div className="flex flex-col gap-8">
-            <div className="flex items-center gap-5">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-hairline bg-ink-soft text-sunset-gold">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                </svg>
-              </div>
-              <div>
-                <span className="micro-label font-mono text-[10px] tracking-widest text-sunset-gold">Your Personal Travel Partner</span>
-                <h3 className="font-display text-3xl font-medium text-cream leading-tight mt-0.5">Vinesh Narayan</h3>
-              </div>
-            </div>
+          <div className="relative grid grid-cols-1 gap-x-8 gap-y-6 p-8 md:p-10 md:grid-cols-2">
 
-            <div className="h-px bg-hairline" />
-
-            <div className="flex flex-col gap-6">
-              <p className="text-pretty text-base leading-relaxed text-cream/80">
-                Whether you have a fully formed itinerary or just a desire to explore, get in touch directly to discuss your pace, preferences, and wellbeing.
+            {/* ── Section: Traveller Details ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+                Traveller Details
               </p>
+            </motion.div>
 
-              <div className="flex flex-col gap-4">
-                <a
-                  href="tel:07710461488"
-                  className="inline-flex w-full items-center justify-center gap-2 sm:gap-3 rounded-full bg-gold px-4 sm:px-7 py-4 text-center text-[13px] sm:text-base font-semibold text-ink transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-sunset-gold [touch-action:manipulation] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-                >
-                  <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.122-4.1-6.924-6.924l1.293-.97a1.248 1.248 0 0 0 .417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                  </svg>
-                  Contact
-                </a>
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-name" className={labelClass}>Full Name *</label>
+              <input
+                id="ct-name"
+                type="text"
+                required
+                placeholder="e.g. Sarah Mitchell"
+                value={form.name}
+                onChange={set('name')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-email" className={labelClass}>Email Address *</label>
+              <input
+                id="ct-email"
+                type="email"
+                required
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={set('email')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="md:col-span-2 md:max-w-sm">
+              <label htmlFor="ct-phone" className={labelClass}>Phone / WhatsApp</label>
+              <input
+                id="ct-phone"
+                type="tel"
+                placeholder="+44 7700 900000"
+                value={form.phone}
+                onChange={set('phone')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            {/* ── Section: Trip Details ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+                Trip Details
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="md:col-span-2">
+              <label htmlFor="ct-destination" className={labelClass}>Destination Desired *</label>
+              <input
+                id="ct-destination"
+                type="text"
+                required
+                placeholder="e.g. Bali, Thailand, Sri Lanka…"
+                value={form.destination}
+                onChange={set('destination')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-travel-dates" className={labelClass}>Travel Dates</label>
+              <input
+                id="ct-travel-dates"
+                type="text"
+                placeholder="e.g. 10 Oct – 20 Oct 2025"
+                value={form.travelDates}
+                onChange={set('travelDates')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-duration" className={labelClass}>Duration of Tour</label>
+              <input
+                id="ct-duration"
+                type="text"
+                placeholder="e.g. 10 nights"
+                value={form.duration}
+                onChange={set('duration')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            {/* ── Section: Group Size ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+                Group Size &amp; Rooms
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-adults" className={labelClass}>No. of Adults</label>
+              <input
+                id="ct-adults"
+                type="number"
+                min="1"
+                placeholder="2"
+                value={form.adults}
+                onChange={set('adults')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-rooms" className={labelClass}>No. of Rooms</label>
+              <input
+                id="ct-rooms"
+                type="number"
+                min="1"
+                placeholder="1"
+                value={form.rooms}
+                onChange={set('rooms')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-children" className={labelClass}>No. of Children</label>
+              <input
+                id="ct-children"
+                type="number"
+                min="0"
+                placeholder="0"
+                value={form.children}
+                onChange={set('children')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            <motion.div variants={fadeUp}>
+              <label htmlFor="ct-children-ages" className={labelClass}>Children's Ages</label>
+              <input
+                id="ct-children-ages"
+                type="text"
+                placeholder="e.g. 4, 8, 12"
+                value={form.childrenAges}
+                onChange={set('childrenAges')}
+                className={inputClass}
+              />
+            </motion.div>
+
+            {/* ── Section: Accommodation ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+                Accommodation Preference
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="md:col-span-2">
+              <label className={labelClass}>Facilities</label>
+              <div className="flex flex-wrap gap-3" role="group" aria-label="Accommodation type">
+                {FACILITIES.map(({ value, label }) => (
+                  <label
+                    key={value}
+                    className={`flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200 select-none ${
+                      form.facilities === value
+                        ? 'border-gold bg-gold/10 text-gold shadow-[0_0_0_1px_rgba(212,175,55,0.4)]'
+                        : 'border-hairline text-cream/60 hover:border-cream/20 hover:text-cream/90'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="facilities"
+                      value={value}
+                      checked={form.facilities === value}
+                      onChange={set('facilities')}
+                      className="sr-only"
+                    />
+                    {label}
+                  </label>
+                ))}
               </div>
-            </div>
+            </motion.div>
+
+            {/* ── Section: Special Requests ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+                Special Requests
+              </p>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="md:col-span-2">
+              <label htmlFor="ct-requests" className={labelClass}>
+                Dietary requirements, accessibility needs, special occasions or any other requests
+              </label>
+              <textarea
+                id="ct-requests"
+                rows={4}
+                placeholder="e.g. Vegetarian meals, anniversary surprise, wheelchair access…"
+                value={form.specialRequests}
+                onChange={set('specialRequests')}
+                className={`${inputClass} resize-none leading-relaxed`}
+              />
+            </motion.div>
+
+            {/* ── Submit + Status ── */}
+            <motion.div variants={fadeUp} className="md:col-span-2 flex flex-col items-start gap-4 pt-2">
+              <AnimatePresence mode="wait">
+                {status === 'success' ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    className="flex w-full items-center gap-3 rounded-2xl border border-emerald-700/40 bg-emerald-900/20 px-6 py-4 text-emerald-300"
+                  >
+                    <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <div>
+                      <p className="font-semibold text-sm">Enquiry sent successfully!</p>
+                      <p className="text-xs opacity-75 mt-0.5">Vinesh will be in touch within 24 hours.</p>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.button
+                    key="submit"
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="inline-flex items-center gap-3 rounded-full bg-sunset-gradient px-8 py-4 text-sm font-semibold text-ink shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    {status === 'loading' ? (
+                      <>
+                        <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Sending…
+                      </>
+                    ) : (
+                      <>
+                        Send Enquiry
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                        </svg>
+                      </>
+                    )}
+                  </motion.button>
+                )}
+              </AnimatePresence>
+
+              {status === 'error' && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-sm text-red-400"
+                  role="alert"
+                >
+                  ⚠ {errorMsg || 'Something went wrong. Please try again or contact us directly.'}
+                </motion.p>
+              )}
+            </motion.div>
           </div>
-        </motion.div>
+        </motion.form>
       </div>
     </section>
   );
