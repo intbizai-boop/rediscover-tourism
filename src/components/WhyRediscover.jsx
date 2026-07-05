@@ -5,17 +5,26 @@ import SectionHeading from './SectionHeading.jsx';
 
 // Small, calm line icons (decorative — hidden from assistive tech).
 const ICONS = {
-  'Comprehensive Ground Package': (
-    <path d="M3 19h18M5 19l9-3 6-8-3-1-5 5-7 1-2 2z" strokeLinecap="round" strokeLinejoin="round" />
+  'Personal Concierge Service': (
+    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" strokeLinecap="round" strokeLinejoin="round" />
   ),
-  'Reputed Local Travel Partners': (
-    <path d="M12 12a4 4 0 100-8 4 4 0 000 8zM5 20a7 7 0 0114 0" strokeLinecap="round" strokeLinejoin="round" />
+  'Tailor-Made Itineraries': (
+    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" strokeLinecap="round" strokeLinejoin="round" />
   ),
-  'Holistic Experiences': (
-    <path d="M12 21s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 11c0 5.5-7 10-7 10z" strokeLinecap="round" strokeLinejoin="round" />
+  'Trusted Regional Expertise': (
+    <>
+      <path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="10" r="3" strokeLinecap="round" strokeLinejoin="round" />
+    </>
   ),
-  'Peace of Mind Guaranteed': (
-    <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" strokeLinecap="round" strokeLinejoin="round" />
+  'Luxury with Purpose': (
+    <path d="M6 3h12l4 6-10 13L2 9z M12 3v19 M2 9h20 M12 22L6 9 M12 22l6-13" strokeLinecap="round" strokeLinejoin="round" />
+  ),
+  'Secure Online Booking': (
+    <>
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7 11V7a5 5 0 0110 0v4" strokeLinecap="round" strokeLinejoin="round" />
+    </>
   ),
 };
 
@@ -23,8 +32,8 @@ export default function WhyRediscover() {
   return (
     <section id="why" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20">
       <div className="section-shell flex flex-col gap-14">
-        <SectionHeading label="Why Rediscover" title="Travel Without The Stress.">
-          Everything is designed around your comfort from arrival to departure.
+        <SectionHeading label="Why Rediscover" title="Why Choose Rediscover Tourism?">
+          Everything is designed around your comfort, peace of mind, and bespoke travel aspirations.
         </SectionHeading>
 
         <motion.ul
@@ -32,7 +41,7 @@ export default function WhyRediscover() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5"
         >
           {WHY_CARDS.map((card) => (
             <motion.li
@@ -45,7 +54,7 @@ export default function WhyRediscover() {
                   {ICONS[card.title]}
                 </svg>
               </span>
-              <h3 className="font-display text-xl text-cream">{card.title}</h3>
+              <h3 className="font-display text-lg text-cream">{card.title}</h3>
               <p className="text-pretty text-sm leading-relaxed text-cream/70">{card.body}</p>
             </motion.li>
           ))}

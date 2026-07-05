@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import WhyRediscover from './components/WhyRediscover.jsx';
+import Journeys from './components/Journeys.jsx';
 import Destinations from './components/Destinations.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
 import FinalCta from './components/FinalCta.jsx';
@@ -36,8 +37,9 @@ export default function App() {
       <Header />
       <main id="main">
         <Hero />
-        <WhyRediscover />
+        <Journeys />
         <Destinations />
+        <WhyRediscover />
         <HowItWorks />
         <FinalCta />
         <Contact />

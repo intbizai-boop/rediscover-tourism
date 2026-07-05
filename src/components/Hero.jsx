@@ -67,32 +67,39 @@ export default function Hero() {
         >
           <div className="flex flex-col gap-4 md:gap-6">
             <motion.span variants={item} className="micro-label">
-              Holistic Travel. Complete Peace of Mind.
+              Luxury Travel. Authentic Experiences. Asia, Rediscovered.
             </motion.span>
 
             <motion.h1
               variants={item}
               className="text-balance font-display text-4xl font-medium leading-[1.05] text-cream sm:text-5xl lg:text-6xl"
             >
-              Rediscover Asia.
+              Rediscover Asia
               <span className="block text-sunset-gold">
-                We Take Care <br className="sm:hidden" /> Of The Rest.
+                in Extraordinary Ways
               </span>
             </motion.h1>
 
+            <motion.h2
+              variants={item}
+              className="text-pretty font-display text-lg font-medium text-sunset-gold/90 md:text-xl"
+            >
+              Luxury journeys designed around your passions.
+            </motion.h2>
+
             <motion.p
               variants={item}
-              className="text-pretty max-w-md text-sm leading-relaxed text-cream/80 md:text-lg"
+              className="text-pretty max-w-xl text-sm leading-relaxed text-cream/80 md:text-base"
             >
-              A new way to travel. A better way to feel. Private and carefully curated journeys
-              across India, Sri&nbsp;Lanka, Thailand and beyond. From the moment you land,
-              every detail is handled so you can simply relax and enjoy.
+              Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
+              an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
+              Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button href="#contact">Start Planning Your Journey</Button>
-              <Button href="#destinations" variant="secondary">
-                Explore Destinations
+              <Button href="#journeys">Explore Our Experiences</Button>
+              <Button href="#contact" variant="secondary">
+                Plan Your Journey
               </Button>
             </motion.div>
           </div>

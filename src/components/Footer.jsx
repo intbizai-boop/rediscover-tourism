@@ -1,10 +1,12 @@
 import { NAV_LINKS, DESTINATIONS } from '../lib/content.js';
 
 const SERVICES = [
-  'Curated Journeys',
-  'Local Coordination',
-  'Wellness Travel',
-  'Holistic Experiences',
+  'Bespoke Holidays',
+  'Wellness Retreats',
+  'Medical Tourism',
+  'Dental Tourism',
+  'Eco-Tourism',
+  'Luxury Escapes',
 ];
 
 export default function Footer() {
@@ -36,7 +38,7 @@ export default function Footer() {
         <nav aria-label="Services" className="flex flex-col gap-3">
           <h2 className="micro-label mb-1">Services</h2>
           {SERVICES.map((s) => (
-            <a key={s} href="#why" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
+            <a key={s} href="#journeys" className="text-sm text-cream/70 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold">
               {s}
             </a>
           ))}
