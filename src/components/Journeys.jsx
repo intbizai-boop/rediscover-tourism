@@ -46,10 +46,10 @@ const ICONS = {
 
 export default function Journeys() {
   return (
-    <section id="journeys" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20">
+    <section id="journeys" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20 overflow-hidden">
       {/* Subtle light leak backdrop */}
       <div className="pointer-events-none absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-sunset-gold/5 blur-[120px]" aria-hidden="true" />
-      
+
       <div className="section-shell flex flex-col gap-14">
         <SectionHeading label="Bespoke Offerings" title="Curated Journeys">
           We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
