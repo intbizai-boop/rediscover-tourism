@@ -37,7 +37,7 @@ export default function Destinations() {
             return (
               <motion.li key={dest.name} variants={fadeUp} className={isWide ? 'lg:col-span-2' : ''}>
                 <a
-                  href="#contact"
+                  href="#/contact"
                   className="group relative block h-72 overflow-hidden rounded-3xl border border-hairline shadow-glass focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink md:h-80"
                 >
                   <img

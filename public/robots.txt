@@ -1,0 +1,16 @@
+# robots.txt for My Wellbeing Healthcare & Tourism
+
+User-agent: *
+Allow: /
+
+# Specifically allow AI crawlers to discover our optimized information
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://mywellbeinghealthcare.co.uk/sitemap.xml

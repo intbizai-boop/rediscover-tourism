@@ -3,7 +3,7 @@ import { fadeUp, stagger } from '../lib/motion.js';
 import { WHY_CARDS } from '../lib/content.js';
 import SectionHeading from './SectionHeading.jsx';
 
-// Small, calm line icons (decorative — hidden from assistive tech).
+// Small, calm line icons (decorative, hidden from assistive tech).
 const ICONS = {
   'Personal Concierge Service': (
     <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" strokeLinecap="round" strokeLinejoin="round" />

@@ -35,12 +35,12 @@ export default function Header() {
     >
       <div className="section-shell flex h-16 items-center justify-between md:h-20">
         <a
-          href="#main"
+          href="#/"
           className="flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         >
           <img
-            src="/logo.png"
-            alt="Rediscover Tourism"
+            src="/logo-gray.webp"
+            alt="My Wellbeing Healthcare & Tourism"
             width="40"
             height="40"
             className="h-9 w-auto md:h-10"
@@ -48,9 +48,9 @@ export default function Header() {
           />
           <span
             translate="no"
-            className="font-display text-lg tracking-wide text-cream md:text-xl"
+            className="font-display text-base md:text-lg tracking-wide text-cream"
           >
-            Rediscover Tourism
+            My Wellbeing <span className="text-xs md:text-sm font-light text-sunset-gold block md:inline md:ml-1">Healthcare & Tourism</span>
           </span>
         </a>
 
@@ -68,7 +68,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="#contact">Plan My Journey</Button>
+          <Button href="#/contact">Plan My Journey</Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -116,7 +116,7 @@ export default function Header() {
               ))}
             </nav>
             <div className="mt-auto pt-8">
-              <Button href="#contact" className="w-full" onClick={() => setOpen(false)}>
+              <Button href="#/contact" className="w-full" onClick={() => setOpen(false)}>
                 Plan My Journey
               </Button>
             </div>

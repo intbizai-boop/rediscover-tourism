@@ -4,9 +4,10 @@
  */
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#main' },
-  { label: 'Journeys', href: '#journeys' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '#/' },
+  { label: 'About', href: '#/about' },
+  { label: 'Destination', href: '#/destination' },
+  { label: 'Contact', href: '#/contact' },
 ];
 
 export const WHY_CARDS = [

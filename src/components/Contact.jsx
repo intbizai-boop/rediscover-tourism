@@ -94,8 +94,8 @@ export default function Contact() {
       </div>
 
       <div className="section-shell">
-        <SectionHeading label="Enquire" title="Plan Your Journey" align="center" className="mb-14">
-          Tell us your dream — we&apos;ll craft every detail. Fill in your travel requirements
+        <SectionHeading label="Enquire" title="Plan Your Journey" align="center" className="mb-20">
+          Tell us your dream, we&apos;ll craft every detail. Fill in your travel requirements
           below and Vinesh will be in touch with a bespoke itinerary.
         </SectionHeading>
 

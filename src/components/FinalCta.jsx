@@ -29,7 +29,7 @@ export default function FinalCta() {
           a seamless, luxurious, and deeply personal travel experience from beginning to end.
         </p>
         <Button
-          href="#contact"
+          href="#/contact"
           variant="dark"
           className="mt-4"
         >

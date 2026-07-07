@@ -100,7 +100,7 @@ export default function Journeys() {
 
               <div className="pt-2">
                 <a
-                  href="#contact"
+                  href="#/contact"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-sunset-gold transition-all duration-300 hover:text-gold group-hover:translate-x-1"
                 >
                   Inquire About This Journey
