@@ -15,7 +15,7 @@ export default function Hero() {
 
   return (
     <section
-      aria-label="Rediscover Thyselves. We take care of the rest."
+      aria-label="Rediscover Thyself. We take care of the rest."
       className="relative min-h-[100svh] w-full overflow-hidden bg-ivory"
     >
       {/* Desktop background video (16:9) */}
@@ -104,14 +104,14 @@ export default function Hero() {
         >
           <div className="flex flex-col gap-3.5 md:gap-6">
             <motion.span variants={item} className="micro-label">
-              Luxury Travel. Authentic Experiences. Rediscover Thyselves.
+              Luxury Travel. Authentic Experiences. Rediscover Thyself.
             </motion.span>
 
             <motion.h1
               variants={item}
               className="text-balance font-display text-3xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl"
             >
-              Rediscover Thyselves
+              Rediscover Thyself
               <span className="block text-forest mt-2">
                 in Extraordinary Ways
               </span>

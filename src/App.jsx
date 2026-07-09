@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
+import DestinationsPreview from './components/DestinationsPreview.jsx';
 import WhyRediscover from './components/WhyRediscover.jsx';
 import Journeys from './components/Journeys.jsx';
 import Destinations from './components/Destinations.jsx';
@@ -107,6 +108,7 @@ export default function App() {
             {currentPage === 'home' && (
               <>
                 <Hero />
+                <DestinationsPreview />
                 <Journeys />
                 <WhyRediscover />
                 <HowItWorks />

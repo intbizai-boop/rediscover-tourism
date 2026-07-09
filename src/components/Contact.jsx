@@ -96,7 +96,7 @@ export default function Contact() {
       <div className="section-shell">
         <SectionHeading label="Enquire" title="Plan Your Journey" align="center" className="mb-20">
           Tell us your dream, we&apos;ll craft every detail. Fill in your travel requirements
-          below and Vinesh will be in touch with a bespoke itinerary.
+          below; our dedicated specialists will respond with a bespoke itinerary within 24 hours, including weekends.
         </SectionHeading>
 
         <motion.form
@@ -355,7 +355,7 @@ export default function Contact() {
                     </svg>
                     <div>
                       <p className="font-semibold text-sm">Enquiry sent successfully!</p>
-                      <p className="text-xs opacity-75 mt-0.5">Vinesh will be in touch within 24 hours.</p>
+                      <p className="text-xs opacity-75 mt-0.5">Vinesh will be in touch within 24 hours (including weekends).</p>
                     </div>
                   </motion.div>
                 ) : (
@@ -385,6 +385,12 @@ export default function Contact() {
                   </motion.button>
                 )}
               </AnimatePresence>
+
+              {status !== 'success' && (
+                <p className="text-xs text-charcoal/50">
+                  * We answer all travel requests within 24 hours, including weekends.
+                </p>
+              )}
 
               {status === 'error' && (
                 <motion.p
