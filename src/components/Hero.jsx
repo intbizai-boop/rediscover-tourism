@@ -50,7 +50,7 @@ export default function Hero() {
       {/* Mobile background video (9:16) */}
       {!reduce ? (
         <video
-          className="absolute inset-0 block h-full w-full object-cover md:hidden"
+          className="absolute inset-0 block h-full w-full object-cover object-bottom md:hidden"
           autoPlay
           muted
           loop
@@ -69,7 +69,7 @@ export default function Hero() {
           alt=""
           width="1080"
           height="1920"
-          className="absolute inset-0 block h-full w-full object-cover md:hidden"
+          className="absolute inset-0 block h-full w-full object-cover object-bottom md:hidden"
           loading="eager"
           fetchPriority="high"
           aria-hidden="true"
@@ -94,7 +94,7 @@ export default function Hero() {
 
 
       {/* Content wrapper */}
-      <div className="section-shell relative flex min-h-[100svh] flex-col pb-8 pt-20 md:flex-row md:items-center md:pb-0 md:pt-0">
+      <div className="section-shell relative flex min-h-[100svh] flex-col pb-[32svh] pt-20 md:flex-row md:items-center md:pb-0 md:pt-0">
         <motion.div
           variants={container}
           initial="hidden"
@@ -102,14 +102,14 @@ export default function Hero() {
           className="flex w-full flex-col justify-start md:max-w-xl"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
-          <div className="flex flex-col gap-4 md:gap-6">
+          <div className="flex flex-col gap-3.5 md:gap-6">
             <motion.span variants={item} className="micro-label">
               Luxury Travel. Authentic Experiences. Asia, Rediscovered.
             </motion.span>
 
             <motion.h1
               variants={item}
-              className="text-balance font-display text-4xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl"
+              className="text-balance font-display text-3xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl"
             >
               Rediscover Asia
               <span className="block text-forest mt-2">

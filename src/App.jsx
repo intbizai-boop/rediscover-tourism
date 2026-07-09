@@ -11,88 +11,13 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 import AmbientMusic from './components/AmbientMusic.jsx';
-import ComingSoon from './components/ComingSoon.jsx';
 import About from './components/About.jsx';
 
 export default function App() {
-  const [isPreview, setIsPreview] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('preview') === 'true') {
-      setIsPreview(true);
-    }
-  }, []);
-
-  // Theme, Titles, and JSON-LD SEO/LLM Metadata Side-effects
-  useEffect(() => {
-    if (!isPreview) return;
-
-    // Update Head Metadata
-    const originalTitle = document.title;
-    document.title = "My Wellbeing Healthcare & Tourism · Luxury Travel & Wellness";
-
-    const metaDesc = document.querySelector('meta[name="description"]');
-    let originalDesc = "";
-    if (metaDesc) {
-      originalDesc = metaDesc.getAttribute('content') || "";
-      metaDesc.setAttribute('content', "Explore authentic, personalised journeys in India with My Wellbeing Healthcare & Tourism. Tranquil Kerala backwaters, Himalayas, medical & wellness travel, and cultural tours in partnership with Blue Spice Holidays.");
-    }
-
-    // Dynamic JSON-LD Schema for SEO and LLM GEO search optimization
-    const schemaId = "mywellbeing-jsonld-schema";
-    let schemaScript = document.getElementById(schemaId);
-    if (!schemaScript) {
-      schemaScript = document.createElement('script');
-      schemaScript.id = schemaId;
-      schemaScript.type = "application/ld+json";
-      schemaScript.innerHTML = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "TravelAgency",
-        "name": "My Wellbeing Healthcare & Tourism",
-        "alternateName": "My Wellbeing Healthcare",
-        "description": "Bespoke luxury holidays, wellness & yoga retreats, and coordinated health & medical tourism in India, operated in partnership with Blue Spice Holidays.",
-        "url": window.location.origin,
-        "logo": `${window.location.origin}/logo-gray.webp`,
-        "slogan": "Comfort, Confidence, and Care.",
-        "partner": {
-          "@type": "TravelAgency",
-          "name": "Blue Spice Holidays",
-          "description": "Trusted travel partner in India providing local knowledge, planned itineraries, and reliable support."
-        },
-        "areaServed": [
-          { "@type": "AdministrativeArea", "name": "India" },
-          { "@type": "AdministrativeArea", "name": "Kerala" },
-          { "@type": "AdministrativeArea", "name": "Himalayas" }
-        ],
-        "offers": {
-          "@type": "Offer",
-          "name": "Summer 2026 Early Booking Offer",
-          "description": "Book your holiday during our Summer 2026 Early Booking Promotion and receive 10% off selected tour packages.",
-          "priceCurrency": "GBP",
-          "price": "Varies"
-        }
-      });
-      document.head.appendChild(schemaScript);
-    }
-
-    return () => {
-      // Revert all dynamic body properties on unmount
-      document.title = originalTitle;
-      if (metaDesc) {
-        metaDesc.setAttribute('content', originalDesc);
-      }
-      const existingSchema = document.getElementById(schemaId);
-      if (existingSchema) {
-        existingSchema.remove();
-      }
-    };
-  }, [isPreview]);
 
   // Auto-scroll utility for automated full-page screenshots (trigging Framer Motion whileInView reveals)
   useEffect(() => {
-    if (!isPreview) return;
     const params = new URLSearchParams(window.location.search);
     if (params.get('scroll') === 'true') {
       const triggerAnimations = async () => {
@@ -110,25 +35,38 @@ export default function App() {
       };
       triggerAnimations();
     }
-  }, [isPreview]);
+  }, []);
 
-  // Client-side Hash Router for Page Splitting
+  // Client-side Hash Router for Page Splitting & Dynamic Document Titles
   useEffect(() => {
-    if (!isPreview) return;
-
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#/', '').replace('#', '');
       const validPages = ['home', 'about', 'destination', 'contact'];
       
+      let pageKey = 'home';
       if (validPages.includes(hash)) {
-        setCurrentPage(hash);
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        pageKey = hash;
       } else if (hash === '' || hash === '/') {
-        setCurrentPage('home');
+        pageKey = 'home';
+      }
+
+      setCurrentPage(pageKey);
+
+      // Dynamic document title update based on current page
+      if (pageKey === 'home') {
+        document.title = "My Wellbeing Healthcare & Tourism · Luxury Travel & Wellness";
+      } else if (pageKey === 'about') {
+        document.title = "About Us · My Wellbeing Healthcare & Tourism";
+      } else if (pageKey === 'destination') {
+        document.title = "Specialised Destinations · My Wellbeing Healthcare & Tourism";
+      } else if (pageKey === 'contact') {
+        document.title = "Contact Us · My Wellbeing Healthcare & Tourism";
+      }
+
+      if (validPages.includes(hash) || hash === '' || hash === '/') {
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         // Likely a section hash on the home page (e.g., journeys, how-it-works)
-        setCurrentPage('home');
         setTimeout(() => {
           const element = document.getElementById(hash);
           if (element) {
@@ -146,11 +84,7 @@ export default function App() {
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, [isPreview]);
-
-  if (!isPreview) {
-    return <ComingSoon />;
-  }
+  }, []);
 
   return (
     <>

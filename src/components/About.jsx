@@ -44,15 +44,12 @@ export default function About() {
             {/* Primary description */}
             <motion.div variants={fadeUp} className="lg:col-span-7 flex flex-col gap-6 text-base leading-relaxed text-charcoal/80">
               <p>
-                At My Wellbeing Healthcare & Tourism, we combine local expertise, trusted partnerships, and a passion for India to offer authentic, personalised journeys. From the tranquil backwaters of Kerala to the majestic Himalayas, cultural heritage tours, and carefully coordinated medical and wellness travel, we are dedicated to helping every traveller experience India with comfort, confidence, and care.
+                I am a doctor living in Devon. I have been working for the NHS for the last 20 years. I love travelling and I have been fortunate enough to visit different parts of Asia during my holidays. I also enjoy Mindfulness and Meditation, having practiced this in an ashram in South India. I also enjoy tennis and badminton in my spare time. I am also an avid dog lover.
               </p>
               
-              <div className="mt-6 border-l-2 border-forest/40 pl-6 py-2">
-                <h3 className="font-display text-lg font-medium text-charcoal mb-2">Our India Partnership</h3>
-                <p className="text-sm">
-                  We are proud to work in partnership with <strong>Blue Spice Holidays</strong>, our trusted travel partner in India. Their extensive local knowledge and years of experience enable us to provide carefully planned itineraries, reliable support, and memorable travel experiences throughout India.
-                </p>
-              </div>
+              <p>
+                My name is Nimish and I am Vinnie's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received good Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, especially in Asia.
+              </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Button href="#/destination">Explore Specialised Destinations</Button>
