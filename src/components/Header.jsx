@@ -3,7 +3,12 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { NAV_LINKS } from '../lib/content.js';
 import Button from './Button.jsx';
 
-export default function Header() {
+export default function Header({ currentPage = 'home' }) {
+  const getIsActive = (href) => {
+    const page = href.replace('#/', '').replace('#', '');
+    if (page === '') return currentPage === 'home';
+    return currentPage === page;
+  };
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
@@ -56,15 +61,22 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-full px-4 py-2 text-sm text-charcoal/75 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = getIsActive(link.href);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-4 py-2 text-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest ${
+                  active
+                    ? 'text-forest font-semibold bg-forest/5'
+                    : 'text-charcoal/75 hover:text-forest'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:block">
@@ -104,16 +116,23 @@ export default function Header() {
             style={{ overscrollBehavior: 'contain' }}
           >
             <nav aria-label="Mobile" className="flex flex-col gap-2">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl px-2 py-4 font-display text-2xl text-charcoal/90 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const active = getIsActive(link.href);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-2xl px-3 py-3.5 font-display text-2xl transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest ${
+                      active
+                        ? 'text-forest font-semibold bg-forest/5 pl-5'
+                        : 'text-charcoal/90 hover:text-forest'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </nav>
             <div className="mt-auto pt-8">
               <Button href="#/contact" className="w-full" onClick={() => setOpen(false)}>

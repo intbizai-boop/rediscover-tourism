@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../lib/motion.js';
+import Button from './Button.jsx';
 
 export default function About() {
   return (
@@ -51,6 +52,13 @@ export default function About() {
                 <p className="text-sm">
                   We are proud to work in partnership with <strong>Blue Spice Holidays</strong>, our trusted travel partner in India. Their extensive local knowledge and years of experience enable us to provide carefully planned itineraries, reliable support, and memorable travel experiences throughout India.
                 </p>
+              </div>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button href="#/destination">Explore Specialised Destinations</Button>
+                <Button href="#/contact" variant="secondary">
+                  Contact Our Team
+                </Button>
               </div>
             </motion.div>
 

@@ -160,7 +160,7 @@ export default function App() {
       >
         Skip to main content
       </a>
-      <Header />
+      <Header currentPage={currentPage} />
       <main id="main" className="min-h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.div

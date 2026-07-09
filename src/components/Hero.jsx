@@ -128,10 +128,20 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button href="#journeys">Explore Our Experiences</Button>
-              <Button href="#contact" variant="secondary">
+              <Button href="#/destination">Explore Destinations</Button>
+              <Button href="#/contact" variant="secondary">
                 Plan Your Journey
               </Button>
+            </motion.div>
+
+            <motion.div variants={item} className="mt-1">
+              <a
+                href="#journeys"
+                className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-forest/80 hover:text-forest transition-colors duration-300"
+              >
+                Or view curated experiences
+                <span className="animate-bounce" aria-hidden="true">↓</span>
+              </a>
             </motion.div>
 
             <motion.p

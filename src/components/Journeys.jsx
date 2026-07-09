@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../lib/motion.js';
 import { JOURNEY_CATEGORIES } from '../lib/content.js';
 import SectionHeading from './SectionHeading.jsx';
+import Button from './Button.jsx';
 
 // Premium icons matching each luxury travel category
 const ICONS = {
@@ -69,7 +70,12 @@ export default function Journeys() {
 
       <div className="section-shell flex flex-col gap-14">
         <SectionHeading label="Bespoke Offerings" title="Curated Journeys">
-          Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
+          <span className="hidden md:inline">
+            We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
+          </span>
+          <span className="inline md:hidden">
+            Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
+          </span>
         </SectionHeading>
 
         <motion.div
@@ -126,6 +132,19 @@ export default function Journeys() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        >
+          <Button href="#/destination">Explore Specialised Destinations</Button>
+          <Button href="#/contact" variant="secondary">
+            Plan a Bespoke Journey
+          </Button>
         </motion.div>
       </div>
     </section>

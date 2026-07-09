@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../lib/motion.js';
 import { WHY_CARDS } from '../lib/content.js';
 import SectionHeading from './SectionHeading.jsx';
+import Button from './Button.jsx';
 
 // Small, calm line icons (decorative, hidden from assistive tech).
 const ICONS = {
@@ -59,6 +60,18 @@ export default function WhyRediscover() {
             </motion.li>
           ))}
         </motion.ul>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-12 text-center"
+        >
+          <Button href="#/about" variant="secondary">
+            Learn More About Our Story
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

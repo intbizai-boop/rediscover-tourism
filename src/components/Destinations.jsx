@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { fadeUp, stagger } from '../lib/motion.js';
 import { DESTINATIONS } from '../lib/content.js';
 import SectionHeading from './SectionHeading.jsx';
+import Button from './Button.jsx';
 
 // High-quality destination imagery.
 const IMAGES = {
@@ -59,7 +60,7 @@ export default function Destinations() {
                         {dest.notice}
                       </p>
                     )}
-                    <span className="mt-4 inline-flex items-center gap-2 text-sm text-[#b4d2b7] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm text-[#b4d2b7] opacity-100 lg:opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100">
                       Begin your enquiry
                       <span aria-hidden="true">→</span>
                     </span>
@@ -69,6 +70,25 @@ export default function Destinations() {
             );
           })}
         </motion.ul>
+
+        {/* Bottom CTA block */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-16 text-center bg-sand/30 rounded-3xl border border-charcoal/10 p-8 md:p-12 max-w-4xl mx-auto shadow-sm relative overflow-hidden"
+        >
+          <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-forest/5 blur-xl" aria-hidden="true" />
+          <h3 className="font-display text-2xl md:text-3xl text-charcoal mb-4">Have a Destination in Mind?</h3>
+          <p className="text-sm md:text-base leading-relaxed text-charcoal/70 max-w-2xl mx-auto mb-8">
+            Our travel specialists are ready to design a bespoke itinerary tailored precisely to your budget, style, and travel dreams.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button href="#/contact">Plan Your Journey</Button>
+            <Button href="tel:07710461488" variant="secondary">Call a Specialist</Button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
