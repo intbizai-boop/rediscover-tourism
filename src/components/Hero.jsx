@@ -103,6 +103,14 @@ export default function Hero() {
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex flex-col gap-3.5 md:gap-6">
+            <motion.div
+              variants={item}
+              className="inline-flex self-start items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-3.5 py-1.5 text-[10px] font-semibold text-forest uppercase tracking-wider"
+            >
+              <span className="flex h-1.5 w-1.5 rounded-full bg-forest animate-pulse" />
+              10% Discount on Bookings Taken Till September
+            </motion.div>
+
             <motion.span variants={item} className="micro-label">
               Luxury Travel. Authentic Experiences. Rediscover Thyself.
             </motion.span>

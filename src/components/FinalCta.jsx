@@ -115,6 +115,12 @@ export default function FinalCta() {
         viewport={{ once: true, amount: 0.4 }}
         className="section-shell relative flex flex-col items-center gap-6 text-center"
       >
+        <div
+          className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-3.5 py-1.5 text-[10px] font-semibold text-forest uppercase tracking-wider"
+        >
+          <span className="flex h-1.5 w-1.5 rounded-full bg-forest animate-pulse" />
+          10% Discount on Bookings Taken Till September
+        </div>
         <span className="font-mono text-xs uppercase tracking-label text-forest font-semibold">Our Philosophy</span>
         <h2 className="text-balance max-w-3xl font-display text-4xl font-medium leading-tight text-charcoal md:text-5xl lg:text-6xl">
           Beyond Simple Holidays
