@@ -49,7 +49,7 @@ export default function Header({ currentPage = 'home' }) {
             width="40"
             height="40"
             className="h-9 w-auto md:h-10"
-            fetchpriority="high"
+            fetchPriority="high"
           />
           <span
             translate="no"

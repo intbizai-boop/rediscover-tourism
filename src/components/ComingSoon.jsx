@@ -256,7 +256,8 @@ export default function ComingSoon() {
           </div>
 
           {/* Draggable and Clickable Airplane */}
-          <motion.div
+          <motion.button
+            type="button"
             ref={planeRef}
             drag
             dragConstraints={{ left: -160, right: 160, top: -100, bottom: 100 }}
@@ -292,7 +293,14 @@ export default function ComingSoon() {
               animate(dragY, 0, { type: 'spring', stiffness: 220, damping: 18 });
             }}
             onClick={triggerRoll}
-            className="relative z-20 p-6 touch-none"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                triggerRoll();
+              }
+            }}
+            className="relative z-20 p-6 touch-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:rounded-full"
+            aria-label="Interactive paper airplane. Drag around or press space or enter to do a loop."
             title="Drag me around or click to do a loop!"
           >
             {/* SVG Airplane */}
@@ -318,7 +326,7 @@ export default function ComingSoon() {
               <path d="M22 2L11 13" />
               <path d="M22 2L15 22L11 13L2 9L22 2Z" />
             </svg>
-          </motion.div>
+          </motion.button>
         </div>
 
         {/* Brand Text Header */}
@@ -331,7 +339,7 @@ export default function ComingSoon() {
         </h1>
 
         <p className="text-cream/60 max-w-md mx-auto text-sm md:text-base leading-relaxed mb-8">
-          We&apos;re crafting a brand new experience. 
+          We’re crafting a brand new experience. 
           Leave your email below and be the first to know when we launch.
         </p>
 
@@ -339,25 +347,30 @@ export default function ComingSoon() {
         <div className="w-full max-w-md mx-auto relative mb-12">
           <form
             onSubmit={handleWaitlistSubmit}
-            className="flex flex-col sm:flex-row gap-3 p-1.5 rounded-2xl sm:rounded-full bg-white/5 border border-hairline focus-within:border-gold/40 focus-within:ring-1 focus-within:ring-gold/25 transition-all duration-300 shadow-glass backdrop-blur-md"
+            className="flex flex-col sm:flex-row gap-3 p-1.5 rounded-2xl sm:rounded-full bg-white/5 border border-hairline focus-within:border-gold/40 focus-within:ring-1 focus-within:ring-gold/25 transition-[border-color,box-shadow] duration-300 shadow-glass backdrop-blur-md"
           >
             <input
               type="email"
+              name="email"
+              id="waitlist-email"
               required
-              placeholder="Enter your email address"
+              autocomplete="email"
+              spellCheck={false}
+              aria-label="Email address"
+              placeholder="e.g. you@example.com…"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent text-cream placeholder-cream/35 px-5 py-3 outline-none text-sm flex-grow rounded-full"
+              className="bg-transparent text-cream placeholder-cream/35 px-5 py-3 outline-none text-sm flex-grow rounded-full focus-visible:outline-none"
               disabled={status === 'loading'}
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="bg-sunset-gradient text-ink font-semibold text-sm px-7 py-3 rounded-full hover:shadow-[0_0_15px_rgba(232,177,91,0.4)] active:scale-[0.98] transition-all duration-300 shrink-0 flex items-center justify-center gap-2"
+              className="bg-sunset-gradient text-ink font-semibold text-sm px-7 py-3 rounded-full hover:shadow-[0_0_15px_rgba(232,177,91,0.4)] active:scale-[0.98] transition-[box-shadow,transform] duration-300 shrink-0 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#08101B]"
             >
               {status === 'loading' ? (
                 <>
-                  <svg className="h-4 w-4 animate-spin text-ink" fill="none" viewBox="0 0 24 24">
+                  <svg className="h-4 w-4 animate-spin text-ink" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
@@ -377,11 +390,12 @@ export default function ComingSoon() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 className="absolute left-0 right-0 mt-4 text-sm text-emerald-400 flex items-center justify-center gap-1.5"
+                aria-live="polite"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Awesome! You&apos;ve been added to the waitlist.
+                Awesome! You’ve been added to the waitlist.
               </motion.div>
             )}
 
@@ -391,6 +405,8 @@ export default function ComingSoon() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 className="absolute left-0 right-0 mt-4 text-sm text-red-400"
+                role="alert"
+                aria-live="polite"
               >
                 ⚠ {errorMsg || 'Failed to join waitlist. Please try again.'}
               </motion.div>
@@ -433,7 +449,7 @@ export default function ComingSoon() {
               key={social.label}
               href={social.href}
               aria-label={social.label}
-              className="text-cream/50 hover:text-sunset-gold transition-colors duration-300 transform hover:-translate-y-1"
+              className="text-cream/50 hover:text-sunset-gold transition-colors duration-300 transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:rounded-md"
             >
               <svg
                 width="20"
@@ -445,6 +461,7 @@ export default function ComingSoon() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="w-5 h-5"
+                aria-hidden="true"
               >
                 {social.icon}
               </svg>

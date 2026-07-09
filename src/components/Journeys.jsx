@@ -74,7 +74,7 @@ export default function Journeys() {
             We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
           </span>
           <span className="inline md:hidden">
-            Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
+            Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
           </span>
         </SectionHeading>
 
@@ -89,7 +89,7 @@ export default function Journeys() {
             <motion.div
               key={journey.title}
               variants={fadeUp}
-              className="group relative flex flex-col justify-between rounded-3xl border border-charcoal/10 bg-sand/30 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-md"
+              className="group relative flex flex-col justify-between rounded-3xl border border-charcoal/10 bg-sand/30 p-8 shadow-sm transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1.5 hover:shadow-md"
             >
               {/* Inner Glow Decorative Corner */}
               <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-forest/5 blur-xl group-hover:bg-forest/10 transition-all duration-500" aria-hidden="true" />
@@ -124,7 +124,7 @@ export default function Journeys() {
               <div className="pt-2">
                 <a
                   href="#/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest transition-all duration-300 hover:text-forest/80 group-hover:translate-x-1"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest transition-[color,transform] duration-300 hover:text-forest/80 group-hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-md"
                 >
                   Inquire About This Journey
                   <span aria-hidden="true">→</span>

@@ -10,7 +10,7 @@ const FACILITIES = [
 ];
 
 const inputClass =
-  'w-full rounded-xl border border-charcoal/20 bg-white px-4 py-3 text-sm text-charcoal placeholder-charcoal/40 outline-none transition-all duration-200 focus:border-forest/60 focus:bg-white focus:ring-1 focus:ring-forest/30';
+  'w-full rounded-xl border border-charcoal/20 bg-white px-4 py-3 text-sm text-charcoal placeholder-charcoal/40 outline-none transition-[border-color,background-color,box-shadow] duration-200 focus:border-forest/60 focus:bg-white focus:ring-1 focus:ring-forest/30';
 
 const labelClass = 'block text-[11px] font-mono tracking-widest uppercase text-forest font-semibold mb-1.5';
 
@@ -125,9 +125,11 @@ export default function Contact() {
               <label htmlFor="ct-name" className={labelClass}>Full Name *</label>
               <input
                 id="ct-name"
+                name="name"
                 type="text"
                 required
-                placeholder="e.g. Sarah Mitchell"
+                autocomplete="name"
+                placeholder="e.g. Sarah Mitchell…"
                 value={form.name}
                 onChange={set('name')}
                 className={inputClass}
@@ -138,9 +140,12 @@ export default function Contact() {
               <label htmlFor="ct-email" className={labelClass}>Email Address *</label>
               <input
                 id="ct-email"
+                name="email"
                 type="email"
                 required
-                placeholder="you@example.com"
+                autocomplete="email"
+                spellCheck={false}
+                placeholder="e.g. you@example.com…"
                 value={form.email}
                 onChange={set('email')}
                 className={inputClass}
@@ -151,8 +156,10 @@ export default function Contact() {
               <label htmlFor="ct-phone" className={labelClass}>Phone / WhatsApp</label>
               <input
                 id="ct-phone"
+                name="phone"
                 type="tel"
-                placeholder="+44 7700 900000"
+                autocomplete="tel"
+                placeholder="e.g. +44 7700 900000…"
                 value={form.phone}
                 onChange={set('phone')}
                 className={inputClass}
@@ -170,8 +177,10 @@ export default function Contact() {
               <label htmlFor="ct-destination" className={labelClass}>Destination Desired *</label>
               <input
                 id="ct-destination"
+                name="destination"
                 type="text"
                 required
+                autocomplete="off"
                 placeholder="e.g. Bali, Thailand, Sri Lanka…"
                 value={form.destination}
                 onChange={set('destination')}
@@ -183,8 +192,10 @@ export default function Contact() {
               <label htmlFor="ct-travel-dates" className={labelClass}>Travel Dates</label>
               <input
                 id="ct-travel-dates"
+                name="travelDates"
                 type="text"
-                placeholder="e.g. 10 Oct – 20 Oct 2025"
+                autocomplete="off"
+                placeholder="e.g. 10 Oct – 20 Oct 2025…"
                 value={form.travelDates}
                 onChange={set('travelDates')}
                 className={inputClass}
@@ -195,8 +206,10 @@ export default function Contact() {
               <label htmlFor="ct-duration" className={labelClass}>Duration of Tour</label>
               <input
                 id="ct-duration"
+                name="duration"
                 type="text"
-                placeholder="e.g. 10 nights"
+                autocomplete="off"
+                placeholder="e.g. 10 nights…"
                 value={form.duration}
                 onChange={set('duration')}
                 className={inputClass}
@@ -214,9 +227,11 @@ export default function Contact() {
               <label htmlFor="ct-adults" className={labelClass}>No. of Adults</label>
               <input
                 id="ct-adults"
+                name="adults"
                 type="number"
                 min="1"
-                placeholder="2"
+                autocomplete="off"
+                placeholder="e.g. 2…"
                 value={form.adults}
                 onChange={set('adults')}
                 className={inputClass}
@@ -227,9 +242,11 @@ export default function Contact() {
               <label htmlFor="ct-rooms" className={labelClass}>No. of Rooms</label>
               <input
                 id="ct-rooms"
+                name="rooms"
                 type="number"
                 min="1"
-                placeholder="1"
+                autocomplete="off"
+                placeholder="e.g. 1…"
                 value={form.rooms}
                 onChange={set('rooms')}
                 className={inputClass}
@@ -240,9 +257,11 @@ export default function Contact() {
               <label htmlFor="ct-children" className={labelClass}>No. of Children</label>
               <input
                 id="ct-children"
+                name="children"
                 type="number"
                 min="0"
-                placeholder="0"
+                autocomplete="off"
+                placeholder="e.g. 0…"
                 value={form.children}
                 onChange={set('children')}
                 className={inputClass}
@@ -253,8 +272,10 @@ export default function Contact() {
               <label htmlFor="ct-children-ages" className={labelClass}>Children's Ages</label>
               <input
                 id="ct-children-ages"
+                name="childrenAges"
                 type="text"
-                placeholder="e.g. 4, 8, 12"
+                autocomplete="off"
+                placeholder="e.g. 4, 8, 12…"
                 value={form.childrenAges}
                 onChange={set('childrenAges')}
                 className={inputClass}
@@ -274,7 +295,7 @@ export default function Contact() {
                 {FACILITIES.map(({ value, label }) => (
                   <label
                     key={value}
-                    className={`flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200 select-none ${
+                    className={`flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-[border-color,background-color,color,box-shadow] duration-200 select-none ${
                       form.facilities === value
                         ? 'border-forest bg-forest/10 text-forest shadow-[0_0_0_1px_rgba(58,95,64,0.4)]'
                         : 'border-charcoal/20 text-charcoal/60 hover:border-charcoal/40 hover:text-charcoal/90'
@@ -307,7 +328,9 @@ export default function Contact() {
               </label>
               <textarea
                 id="ct-requests"
+                name="specialRequests"
                 rows={4}
+                autocomplete="off"
                 placeholder="e.g. Vegetarian meals, anniversary surprise, wheelchair access…"
                 value={form.specialRequests}
                 onChange={set('specialRequests')}
@@ -325,6 +348,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     className="flex w-full items-center gap-3 rounded-2xl border border-emerald-600/20 bg-emerald-50 px-6 py-4 text-emerald-800"
+                    aria-live="polite"
                   >
                     <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -339,7 +363,7 @@ export default function Contact() {
                     key="submit"
                     type="submit"
                     disabled={status === 'loading'}
-                    className="inline-flex items-center gap-3 rounded-full bg-forest px-8 py-4 text-sm font-semibold text-sand shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
+                    className="inline-flex items-center gap-3 rounded-full bg-forest px-8 py-4 text-sm font-semibold text-sand shadow-md transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
                     whileTap={{ scale: 0.97 }}
                   >
                     {status === 'loading' ? (
@@ -368,6 +392,7 @@ export default function Contact() {
                   animate={{ opacity: 1 }}
                   className="text-sm text-red-400"
                   role="alert"
+                  aria-live="polite"
                 >
                   ⚠ {errorMsg || 'Something went wrong. Please try again or contact us directly.'}
                 </motion.p>

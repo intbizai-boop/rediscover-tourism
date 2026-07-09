@@ -38,6 +38,8 @@ export default function Hero() {
         <img
           src="/desktop_hero_fallback.webp"
           alt=""
+          width="1920"
+          height="1080"
           className="absolute inset-0 hidden h-full w-full object-cover md:object-[110%_50%] md:block"
           loading="eager"
           fetchPriority="high"
@@ -65,6 +67,8 @@ export default function Hero() {
         <img
           src="/mobile_hero_fallback.webp"
           alt=""
+          width="1080"
+          height="1920"
           className="absolute inset-0 block h-full w-full object-cover md:hidden"
           loading="eager"
           fetchPriority="high"
@@ -74,9 +78,12 @@ export default function Hero() {
 
 
       {/* Custom overlays matching mockup: covers text solid, then fades where image subject starts */}
-      {/* Desktop overlay (left to right) */}
+      {/* Desktop overlay (circling around the subject) */}
       <div
-        className="absolute inset-0 hidden md:block bg-gradient-to-r from-ivory via-ivory via-[40%] to-transparent to-[70%]"
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background: 'radial-gradient(circle at 85% 70%, transparent 20%, rgba(249, 248, 246, 0.15) 32%, rgba(249, 248, 246, 0.8) 42%, #F9F8F6 48%)'
+        }}
         aria-hidden="true"
       />
       {/* Mobile overlay (top to bottom) */}
@@ -122,7 +129,7 @@ export default function Hero() {
               variants={item}
               className="hidden md:block text-pretty max-w-xl text-sm leading-relaxed text-charcoal/80 md:text-base"
             >
-              Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
+              Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
               an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
               Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
             </motion.p>
@@ -134,15 +141,7 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div variants={item} className="mt-1">
-              <a
-                href="#journeys"
-                className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-forest/80 hover:text-forest transition-colors duration-300"
-              >
-                Or view curated experiences
-                <span className="animate-bounce" aria-hidden="true">↓</span>
-              </a>
-            </motion.div>
+
 
             <motion.p
               variants={item}

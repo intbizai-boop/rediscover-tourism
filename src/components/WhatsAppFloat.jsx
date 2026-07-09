@@ -6,7 +6,7 @@ export default function WhatsAppFloat() {
       href="https://wa.me/447710461488"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-cream shadow-[0_8px_30px_rgba(18,140,126,0.4)] backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
+      className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-cream shadow-[0_8px_30px_rgba(18,140,126,0.4)] backdrop-blur-sm transition-[transform,box-shadow] duration-300 hover:scale-110 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
       style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
       aria-label="Chat with Vinesh Narayan on WhatsApp (07710461488)"
       title="Chat with Vinesh Narayan on WhatsApp"

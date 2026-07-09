@@ -65,8 +65,8 @@ export default function About() {
             {/* Side highlights */}
             <motion.div variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
               {/* Summer Offer Card */}
-              <div className="group relative overflow-hidden rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-forest/30">
-                <span className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-forest/5 blur-2xl transition-all duration-500 group-hover:bg-forest/10" />
+              <div className="group relative overflow-hidden rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-[transform,border-color] duration-500 hover:-translate-y-1 hover:border-forest/30">
+                <span className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-forest/5 blur-2xl transition-colors duration-500 group-hover:bg-forest/10" />
                 <span className="micro-label text-forest font-mono text-[10px] tracking-widest block mb-2">Exclusive Offer</span>
                 <h3 className="font-display text-xl font-semibold text-charcoal mb-3">Summer 2026 Early Booking</h3>
                 <p className="text-sm text-charcoal/70 leading-relaxed mb-4">
@@ -78,14 +78,14 @@ export default function About() {
               </div>
 
               {/* Get in Touch Callout */}
-              <div className="group rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-all duration-500 hover:border-forest/30">
+              <div className="group rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-[border-color] duration-500 hover:border-forest/30">
                 <h3 className="font-display text-lg font-medium text-charcoal mb-3">Get in Touch</h3>
                 <p className="text-sm text-charcoal/70 leading-relaxed mb-5">
                   If you have any questions or would like to start planning your journey, please complete the contact form or call us directly. We respond to all enquiries within 24 hours.
                 </p>
                 <a
                   href="#/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-forest/80 transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-forest/80 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-md"
                 >
                   Start planning your journey
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

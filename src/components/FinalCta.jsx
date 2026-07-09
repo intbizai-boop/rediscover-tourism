@@ -120,7 +120,7 @@ export default function FinalCta() {
           Beyond Simple Holidays
         </h2>
         <p className="text-pretty max-w-4xl text-base font-medium leading-relaxed text-charcoal/80 md:text-lg">
-          At Rediscover Tourism, we don&apos;t simply arrange holidays. We create meaningful journeys that enrich lives,
+          At Rediscover Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives,
           restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia.
         </p>
         <p className="text-pretty max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">

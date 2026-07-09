@@ -6,15 +6,15 @@ import Button from './Button.jsx';
 
 // High-quality destination imagery.
 const IMAGES = {
-  'India': '/india_destination.png',
-  'Sri Lanka': '/sri_lanka_destination.png',
-  'Thailand': '/thailand_destination.png',
+  'India': '/india_destination.webp',
+  'Sri Lanka': '/sri_lanka_destination.webp',
+  'Thailand': '/thailand_destination.webp',
   'Nepal': '/nepal_destination.png',
-  'Bhutan': '/bhutan_destination.png',
-  'Vietnam': '/vietnam_destination.png',
+  'Bhutan': '/bhutan_destination.webp',
+  'Vietnam': '/vietnam_destination.webp',
   'Cambodia': '/cambodia_destination.png',
   'Malaysia': '/malaysia_destination.png',
-  'Indonesia (Bali)': '/bali_destination.jpg',
+  'Indonesia (Bali)': '/bali_destination.webp',
   'Myanmar (Burma)': '/myanmar_destination.png',
 };
 
@@ -44,6 +44,8 @@ export default function Destinations() {
                   <img
                     src={IMAGES[dest.name]}
                     alt=""
+                    width="600"
+                    height="400"
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                   />

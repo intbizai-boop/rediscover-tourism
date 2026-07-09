@@ -78,7 +78,7 @@ export default function AmbientMusic() {
     <button
       ref={buttonRef}
       onClick={togglePlayback}
-      className="fixed bottom-6 right-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/10 bg-sand shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
+      className="fixed bottom-6 right-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/10 bg-sand shadow-sm transition-[transform] duration-300 hover:scale-105 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
       style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
       aria-label={isPlaying ? 'Mute background music' : 'Unmute background music'}
       title={isPlaying ? 'Mute Music' : 'Play Music'}
