@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
-  background-color: #08101b;
+  background-color: #F9F8F6;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  @apply bg-ink text-cream font-body antialiased;
+  @apply bg-ivory text-charcoal font-body antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #d4af37;
-  color: #08101b;
+  background: #3A5F40;
+  color: #E9E4DB;
 }
 
 /* Honor reduced-motion globally as a safety net for CSS transitions. */
@@ -35,7 +35,7 @@ body {
 
 @layer components {
   .micro-label {
-    @apply font-mono text-xs uppercase tracking-label text-sunset-gold;
+    @apply font-mono text-xs uppercase tracking-label text-forest font-semibold;
   }
 
   .section-shell {
@@ -47,8 +47,8 @@ body {
 .cinematic-overlay {
   background: radial-gradient(
     120% 120% at 50% 0%,
-    rgba(8, 16, 27, 0) 40%,
-    rgba(8, 16, 27, 0.85) 100%
+    rgba(51, 51, 51, 0) 40%,
+    rgba(51, 51, 51, 0.85) 100%
   );
 }
 

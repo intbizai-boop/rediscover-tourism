@@ -10,9 +10,9 @@ const FACILITIES = [
 ];
 
 const inputClass =
-  'w-full rounded-xl border border-hairline bg-ink/60 px-4 py-3 text-sm text-cream placeholder-cream/30 outline-none transition-all duration-200 focus:border-gold/60 focus:bg-ink/80 focus:ring-1 focus:ring-gold/30';
+  'w-full rounded-xl border border-charcoal/20 bg-white px-4 py-3 text-sm text-charcoal placeholder-charcoal/40 outline-none transition-all duration-200 focus:border-forest/60 focus:bg-white focus:ring-1 focus:ring-forest/30';
 
-const labelClass = 'block text-[11px] font-mono tracking-widest uppercase text-sunset-gold mb-1.5';
+const labelClass = 'block text-[11px] font-mono tracking-widest uppercase text-forest font-semibold mb-1.5';
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -90,7 +90,7 @@ export default function Contact() {
         className="pointer-events-none absolute inset-x-0 top-0 -translate-y-1/2 flex justify-center"
         aria-hidden="true"
       >
-        <div className="h-72 w-[600px] rounded-full bg-gold/5 blur-[100px]" />
+        <div className="h-72 w-[600px] rounded-full bg-forest/5 blur-[100px]" />
       </div>
 
       <div className="section-shell">
@@ -105,18 +105,18 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="relative overflow-hidden rounded-3xl border border-hairline bg-glass shadow-glass backdrop-blur-md"
+          className="relative overflow-hidden rounded-3xl border border-charcoal/10 bg-sand shadow-sm"
           noValidate
         >
           {/* Card glow corners */}
-          <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-gold/10 blur-3xl" aria-hidden="true" />
-          <div className="pointer-events-none absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-sunset-gold/5 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -left-20 -top-20 h-48 w-48 rounded-full bg-forest/5 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-forest/5 blur-3xl" aria-hidden="true" />
 
           <div className="relative grid grid-cols-1 gap-x-8 gap-y-6 p-8 md:p-10 md:grid-cols-2">
 
             {/* ── Section: Traveller Details ── */}
             <motion.div variants={fadeUp} className="md:col-span-2">
-              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-charcoal/40 border-b border-charcoal/10 pb-3 mb-1">
                 Traveller Details
               </p>
             </motion.div>
@@ -161,7 +161,7 @@ export default function Contact() {
 
             {/* ── Section: Trip Details ── */}
             <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
-              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-charcoal/40 border-b border-charcoal/10 pb-3 mb-1">
                 Trip Details
               </p>
             </motion.div>
@@ -205,7 +205,7 @@ export default function Contact() {
 
             {/* ── Section: Group Size ── */}
             <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
-              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-charcoal/40 border-b border-charcoal/10 pb-3 mb-1">
                 Group Size &amp; Rooms
               </p>
             </motion.div>
@@ -263,7 +263,7 @@ export default function Contact() {
 
             {/* ── Section: Accommodation ── */}
             <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
-              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-charcoal/40 border-b border-charcoal/10 pb-3 mb-1">
                 Accommodation Preference
               </p>
             </motion.div>
@@ -276,8 +276,8 @@ export default function Contact() {
                     key={value}
                     className={`flex cursor-pointer items-center gap-2.5 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200 select-none ${
                       form.facilities === value
-                        ? 'border-gold bg-gold/10 text-gold shadow-[0_0_0_1px_rgba(212,175,55,0.4)]'
-                        : 'border-hairline text-cream/60 hover:border-cream/20 hover:text-cream/90'
+                        ? 'border-forest bg-forest/10 text-forest shadow-[0_0_0_1px_rgba(58,95,64,0.4)]'
+                        : 'border-charcoal/20 text-charcoal/60 hover:border-charcoal/40 hover:text-charcoal/90'
                     }`}
                   >
                     <input
@@ -296,7 +296,7 @@ export default function Contact() {
 
             {/* ── Section: Special Requests ── */}
             <motion.div variants={fadeUp} className="md:col-span-2 mt-4">
-              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-cream/40 border-b border-hairline pb-3 mb-1">
+              <p className="text-[10px] font-mono tracking-[0.3em] uppercase text-charcoal/40 border-b border-charcoal/10 pb-3 mb-1">
                 Special Requests
               </p>
             </motion.div>
@@ -324,7 +324,7 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
-                    className="flex w-full items-center gap-3 rounded-2xl border border-emerald-700/40 bg-emerald-900/20 px-6 py-4 text-emerald-300"
+                    className="flex w-full items-center gap-3 rounded-2xl border border-emerald-600/20 bg-emerald-50 px-6 py-4 text-emerald-800"
                   >
                     <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -339,7 +339,7 @@ export default function Contact() {
                     key="submit"
                     type="submit"
                     disabled={status === 'loading'}
-                    className="inline-flex items-center gap-3 rounded-full bg-sunset-gradient px-8 py-4 text-sm font-semibold text-ink shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                    className="inline-flex items-center gap-3 rounded-full bg-forest px-8 py-4 text-sm font-semibold text-sand shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 focus-visible:ring-offset-ivory"
                     whileTap={{ scale: 0.97 }}
                   >
                     {status === 'loading' ? (

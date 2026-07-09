@@ -78,7 +78,7 @@ export default function AmbientMusic() {
     <button
       ref={buttonRef}
       onClick={togglePlayback}
-      className="fixed bottom-6 right-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-glass shadow-glass backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      className="fixed bottom-6 right-20 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/10 bg-sand shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
       style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
       aria-label={isPlaying ? 'Mute background music' : 'Unmute background music'}
       title={isPlaying ? 'Mute Music' : 'Play Music'}
@@ -86,15 +86,15 @@ export default function AmbientMusic() {
       {isPlaying ? (
         // Soundwave animation
         <div className="flex items-end gap-[3px] h-3.5" aria-hidden="true">
-          <div className="w-[3px] bg-sunset-gold rounded-full animate-soundwave-1" />
-          <div className="w-[3px] bg-sunset-gold rounded-full animate-soundwave-2" />
-          <div className="w-[3px] bg-sunset-gold rounded-full animate-soundwave-3" />
-          <div className="w-[3px] bg-sunset-gold rounded-full animate-soundwave-4" />
+          <div className="w-[3px] bg-forest rounded-full animate-soundwave-1" />
+          <div className="w-[3px] bg-forest rounded-full animate-soundwave-2" />
+          <div className="w-[3px] bg-forest rounded-full animate-soundwave-3" />
+          <div className="w-[3px] bg-forest rounded-full animate-soundwave-4" />
         </div>
       ) : (
         // Muted speaker icon
         <svg
-          className="h-5 w-5 text-cream/60 transition-colors group-hover:text-cream"
+          className="h-5 w-5 text-charcoal/60 transition-colors group-hover:text-charcoal"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

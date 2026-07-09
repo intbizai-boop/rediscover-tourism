@@ -27,11 +27,11 @@ export default function SectionHeading({
       } ${className}`}
     >
       {label && <span className="micro-label">{label}</span>}
-      <Tag className="text-balance font-display text-3xl font-medium leading-tight text-cream md:text-4xl lg:text-5xl">
+      <Tag className="text-balance font-display text-3xl font-medium leading-tight text-charcoal md:text-4xl lg:text-5xl">
         {title}
       </Tag>
       {children && (
-        <p className="text-pretty text-base leading-relaxed text-cream/70 md:text-lg">
+        <p className="text-pretty text-base leading-relaxed text-charcoal/70 md:text-lg">
           {children}
         </p>
       )}

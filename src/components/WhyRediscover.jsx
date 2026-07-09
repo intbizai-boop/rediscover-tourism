@@ -47,15 +47,15 @@ export default function WhyRediscover() {
             <motion.li
               key={card.title}
               variants={fadeUp}
-              className="group flex flex-col gap-4 rounded-2xl border border-hairline bg-glass p-7 shadow-glass transition-[transform,border-color] duration-500 hover:-translate-y-1 hover:border-gold/40"
+              className="group flex flex-col gap-4 rounded-2xl border border-charcoal/10 bg-sand/30 p-7 shadow-sm transition-[transform,border-color] duration-500 hover:-translate-y-1 hover:border-forest/30"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-hairline bg-ink-soft text-sunset-gold transition-colors duration-500 group-hover:border-gold/50">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-forest/10 bg-ivory text-forest transition-colors duration-500">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
                   {ICONS[card.title]}
                 </svg>
               </span>
-              <h3 className="font-display text-lg text-cream">{card.title}</h3>
-              <p className="text-pretty text-sm leading-relaxed text-cream/70">{card.body}</p>
+              <h3 className="font-display text-lg text-charcoal">{card.title}</h3>
+              <p className="text-pretty text-sm leading-relaxed text-charcoal/70">{card.body}</p>
             </motion.li>
           ))}
         </motion.ul>

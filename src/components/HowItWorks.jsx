@@ -21,16 +21,16 @@ export default function HowItWorks() {
           {STEPS.map((step) => (
             <motion.li key={step.n} variants={fadeUp} className="relative flex flex-col gap-4">
               <span
-                className="font-mono text-sm tracking-label text-gold"
+                className="font-mono text-sm tracking-label text-forest"
                 aria-hidden="true"
               >
                 {`0${step.n}`}
               </span>
               <span
-                className="h-px w-full bg-gradient-to-r from-gold/50 to-transparent"
+                className="h-px w-full bg-gradient-to-r from-forest/30 to-transparent"
                 aria-hidden="true"
               />
-              <h3 className="text-pretty font-display text-xl leading-snug text-cream">
+              <h3 className="text-pretty font-display text-xl leading-snug text-charcoal">
                 <span className="sr-only">{`Step ${step.n}: `}</span>
                 {step.title}
               </h3>

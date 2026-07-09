@@ -13,6 +13,13 @@ export default {
         cream: '#F7F4EF',
         glass: 'rgba(255,255,255,0.05)',
         hairline: 'rgba(255,255,255,0.08)',
+        // Warm natural light theme
+        ivory: '#F9F8F6',
+        sand: '#E9E4DB',
+        forest: '#3A5F40',
+        charcoal: '#333333',
+        camel: '#D8D1C5',
+        'charcoal-dark': '#1E2221',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],

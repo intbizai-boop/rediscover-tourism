@@ -27,16 +27,16 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
         open
-          ? 'border-b border-hairline bg-ink'
+          ? 'border-b border-charcoal/10 bg-ivory'
           : scrolled
-          ? 'border-b border-hairline bg-ink/80 backdrop-blur-xl'
+          ? 'border-b border-charcoal/10 bg-ivory/80 backdrop-blur-xl'
           : 'border-b border-transparent bg-transparent'
       }`}
     >
       <div className="section-shell flex h-16 items-center justify-between md:h-20">
         <a
           href="#/"
-          className="flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          className="flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
         >
           <img
             src="/logo-gray.webp"
@@ -48,9 +48,9 @@ export default function Header() {
           />
           <span
             translate="no"
-            className="font-display text-base md:text-lg tracking-wide text-cream"
+            className="font-display text-base md:text-lg tracking-wide text-charcoal"
           >
-            My Wellbeing <span className="text-xs md:text-sm font-light text-sunset-gold block md:inline md:ml-1">Healthcare & Tourism</span>
+            My Wellbeing <span className="text-xs md:text-sm font-light text-forest block md:inline md:ml-1">Healthcare & Tourism</span>
           </span>
         </a>
 
@@ -60,7 +60,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm text-cream/75 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="rounded-full px-4 py-2 text-sm text-charcoal/75 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
             >
               {link.label}
             </a>
@@ -78,7 +78,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-glass text-cream [touch-action:manipulation] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold lg:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-sand/30 text-charcoal [touch-action:manipulation] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest lg:hidden"
         >
           <span className="sr-only">Menu</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -100,7 +100,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: reduce ? 0 : 0.4, ease: 'easeOut' }}
-            className="fixed inset-0 top-0 z-40 flex flex-col bg-ink px-6 pb-10 pt-24 lg:hidden"
+            className="fixed inset-0 top-0 z-40 flex flex-col bg-ivory px-6 pb-10 pt-24 lg:hidden"
             style={{ overscrollBehavior: 'contain' }}
           >
             <nav aria-label="Mobile" className="flex flex-col gap-2">
@@ -109,7 +109,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-2xl px-2 py-4 font-display text-2xl text-cream/90 transition-colors duration-300 hover:text-sunset-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  className="rounded-2xl px-2 py-4 font-display text-2xl text-charcoal/90 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
                 >
                   {link.label}
                 </a>

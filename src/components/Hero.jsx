@@ -16,53 +16,83 @@ export default function Hero() {
   return (
     <section
       aria-label="Rediscover Asia. We take care of the rest."
-      className="relative min-h-[100svh] w-full overflow-hidden"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-ivory"
     >
-      {/* Desktop video (16:9) */}
-      <video
-        className="absolute inset-0 hidden h-full w-full object-cover md:block"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <source src="/desktop_hero_video_opt.webm" type="video/webm" />
-      </video>
+      {/* Desktop background video (16:9) */}
+      {!reduce ? (
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:object-[110%_50%] md:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/desktop_hero_fallback.webp"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/desktop_hero_video.webm" type="video/webm" />
+          <source src="/desktop_hero_video.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          src="/desktop_hero_fallback.webp"
+          alt=""
+          className="absolute inset-0 hidden h-full w-full object-cover md:object-[110%_50%] md:block"
+          loading="eager"
+          fetchPriority="high"
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Mobile video (9:16) */}
-      <video
-        className="absolute inset-0 block h-full w-full object-cover md:hidden"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <source src="/mobile_hero_video_opt.webm" type="video/webm" />
-      </video>
+      {/* Mobile background video (9:16) */}
+      {!reduce ? (
+        <video
+          className="absolute inset-0 block h-full w-full object-cover md:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/mobile_hero_fallback.webp"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/mobile_hero_video.webm" type="video/webm" />
+          <source src="/mobile_hero_video.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          src="/mobile_hero_fallback.webp"
+          alt=""
+          className="absolute inset-0 block h-full w-full object-cover md:hidden"
+          loading="eager"
+          fetchPriority="high"
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Luxury overlays: stronger on the left (desktop) and top/bottom (mobile) for readability. */}
+
+      {/* Custom overlays matching mockup: covers text solid, then fades where image subject starts */}
+      {/* Desktop overlay (left to right) */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-transparent md:from-ink/85 md:via-ink/45"
+        className="absolute inset-0 hidden md:block bg-gradient-to-r from-ivory via-ivory via-[40%] to-transparent to-[70%]"
         aria-hidden="true"
       />
+      {/* Mobile overlay (top to bottom) */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/85 to-transparent md:bg-gradient-to-t md:from-ink/20 md:via-transparent md:to-transparent"
+        className="absolute inset-0 block md:hidden bg-gradient-to-b from-ivory via-ivory via-[60%] to-transparent to-[80%]"
         aria-hidden="true"
       />
 
-      {/* Content */}
+
+      {/* Content wrapper */}
       <div className="section-shell relative flex min-h-[100svh] flex-col pb-8 pt-20 md:flex-row md:items-center md:pb-0 md:pt-0">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="flex w-full flex-1 flex-col justify-between md:flex-none md:max-w-xl md:justify-start md:gap-6"
+          className="flex w-full flex-col justify-start md:max-w-xl"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex flex-col gap-4 md:gap-6">
@@ -72,24 +102,24 @@ export default function Hero() {
 
             <motion.h1
               variants={item}
-              className="text-balance font-display text-4xl font-medium leading-[1.05] text-cream sm:text-5xl lg:text-6xl"
+              className="text-balance font-display text-4xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl"
             >
               Rediscover Asia
-              <span className="block text-sunset-gold">
+              <span className="block text-forest mt-2">
                 in Extraordinary Ways
               </span>
             </motion.h1>
 
             <motion.h2
               variants={item}
-              className="text-pretty font-display text-lg font-medium text-sunset-gold/90 md:text-xl"
+              className="text-pretty font-display text-lg font-medium text-forest/90 md:text-xl"
             >
               Luxury journeys designed around your passions.
             </motion.h2>
 
             <motion.p
               variants={item}
-              className="text-pretty max-w-xl text-sm leading-relaxed text-cream/80 md:text-base"
+              className="text-pretty max-w-xl text-sm leading-relaxed text-charcoal/80 md:text-base"
             >
               Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
               an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
@@ -102,17 +132,17 @@ export default function Hero() {
                 Plan Your Journey
               </Button>
             </motion.div>
-          </div>
 
-          <motion.p
-            variants={item}
-            className="mt-8 flex items-center gap-2 text-sm text-cream/70 md:mt-0"
-          >
-            <span className="text-sunset-gold" aria-hidden="true">
-              ★★★★★
-            </span>
-            Trusted Local Travel Partners
-          </motion.p>
+            <motion.p
+              variants={item}
+              className="mt-2 flex items-center gap-2 text-sm text-charcoal/70 md:mt-0"
+            >
+              <span className="text-forest" aria-hidden="true">
+                ★★★★★
+              </span>
+              Trusted Local Travel Partners
+            </motion.p>
+          </div>
         </motion.div>
       </div>
     </section>
