@@ -33,7 +33,7 @@ export default function WhyRediscover() {
   return (
     <section id="why" className="relative py-24 md:py-32 scroll-mt-16 md:scroll-mt-20">
       <div className="section-shell flex flex-col gap-14">
-        <SectionHeading label="Why Rediscover" title="Why Choose Rediscover Tourism?">
+        <SectionHeading label="Why Us" title="Why Choose My Wellbeing Healthcare & Tourism?">
           Everything is designed around your comfort, peace of mind, and bespoke travel aspirations.
         </SectionHeading>
 
