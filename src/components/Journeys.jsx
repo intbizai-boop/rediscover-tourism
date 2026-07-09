@@ -69,7 +69,7 @@ export default function Journeys() {
 
       <div className="section-shell flex flex-col gap-14">
         <SectionHeading label="Bespoke Offerings" title="Curated Journeys">
-          We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
+          Whether you&apos;re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
         </SectionHeading>
 
         <motion.div
