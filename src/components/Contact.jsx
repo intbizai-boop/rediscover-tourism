@@ -114,13 +114,13 @@ export default function Contact() {
         </motion.a>
 
         <SectionHeading
-          label="Enquire"
-          title="Plan Your Journey"
+          label={null}
+          title="Live Your Journey"
           align="items-start text-left md:items-center md:text-center md:mx-auto"
           className="mb-20 pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
         >
           Tell us your dream, we&apos;ll craft every detail. Fill in your travel requirements
-          below; our dedicated specialists will respond with a bespoke itinerary within one working day.
+          below; our dedicated specialists will respond with a bespoke itinerary within 24 hours.
         </SectionHeading>
 
         <motion.form
@@ -198,7 +198,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.div variants={fadeUp} className="md:col-span-2">
-              <label htmlFor="ct-destination" className={labelClass}>Destination Desired *</label>
+              <label htmlFor="ct-destination" className={labelClass}>Destinations Desired *</label>
               <input
                 id="ct-destination"
                 name="destination"
@@ -348,14 +348,14 @@ export default function Contact() {
 
             <motion.div variants={fadeUp} className="md:col-span-2">
               <label htmlFor="ct-requests" className={labelClass}>
-                Dietary requirements, accessibility needs, special occasions or any other requests
+                Dietary requirements, allergies, accessibility needs, special occasions or any other requests
               </label>
               <textarea
                 id="ct-requests"
                 name="specialRequests"
                 rows={4}
                 autocomplete="off"
-                placeholder="e.g. Vegetarian meals, anniversary surprise, wheelchair access…"
+                placeholder="e.g. Vegetarian meals, food allergies, anniversary surprise, wheelchair access…"
                 value={form.specialRequests}
                 onChange={set('specialRequests')}
                 className={`${inputClass} resize-none leading-relaxed`}
@@ -379,7 +379,7 @@ export default function Contact() {
                     </svg>
                     <div>
                       <p className="font-semibold text-sm">Enquiry sent successfully!</p>
-                      <p className="text-xs opacity-75 mt-0.5">Vinni will be in touch within one working day.</p>
+                      <p className="text-xs opacity-75 mt-0.5">Vinnie will be in touch within 24 hours.</p>
                     </div>
                   </motion.div>
                 ) : (
@@ -412,7 +412,7 @@ export default function Contact() {
 
               {status !== 'success' && (
                 <p className="text-xs text-charcoal/50">
-                  * We answer all travel requests within one working day.
+                  * We answer all travel requests within 24 hours.
                 </p>
               )}
 

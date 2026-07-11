@@ -11,6 +11,25 @@ export default function About() {
       </div>
 
       <div className="section-shell relative z-10">
+        {/* Stamp Link */}
+        <motion.a
+          href="#/contact"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: -5 }}
+          whileHover={{ scale: 1.08, rotate: 0 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
+          className="absolute -top-4 right-4 z-20 w-32 h-32 xs:w-[136px] xs:h-[136px] sm:w-36 sm:h-36 sm:right-6 md:-top-6 md:right-10 lg:right-16 md:w-36 md:h-36 lg:w-44 lg:h-44 cursor-pointer block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-full"
+        >
+          <img
+            src="/stamp.webp"
+            alt="10% Discount Stamp"
+            width="160"
+            height="160"
+            className="w-full h-full object-contain pointer-events-none select-none"
+          />
+        </motion.a>
+
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -19,7 +38,7 @@ export default function About() {
           className="flex flex-col gap-12 lg:gap-16"
         >
           {/* Main Title and Intro */}
-          <div className="max-w-3xl">
+          <div className="max-w-3xl pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0">
             <motion.span variants={fadeUp} className="micro-label mb-3 block">
               About Us
             </motion.span>
@@ -44,22 +63,16 @@ export default function About() {
             {/* Primary description */}
             <motion.div variants={fadeUp} className="lg:col-span-7 flex flex-col gap-6 text-base leading-relaxed text-charcoal/80">
               <p>
-                I am a doctor living in Devon. I have been working for the NHS for the last 20 years. I love travelling and I have been fortunate enough to visit different parts of Asia during my holidays. I also enjoy Mindfulness and Meditation, having practiced this in an ashram in South India. I also enjoy tennis and badminton in my spare time. I am also an avid dog lover.
+                At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
+              </p>
+
+              <p>
+                My name is Vinnie and i am your main point of contact in the UK. I am a doctor, living in Devon. I have been working for the NHS for the last 20 years. I love travelling and I have been fortunate enough to visit different parts of India during my holidays. I also enjoy Mindfulness and Meditation, having practiced this in an ashram in South India. I also enjoy tennis and badminton in my spare time. I am also an avid dog lover.
               </p>
               
               <p>
-                My name is Nimish and I am Vinni's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received good Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, especially in Asia.
+                My name is Nimish and I am Vinnie's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received excellent Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, having travelled all over Asia with my customers.
               </p>
-
-              <div className="mt-4 border-l-2 border-forest pl-5 py-1 italic bg-forest/5 rounded-r-2xl pr-4">
-                <div className="flex items-center gap-1.5 text-sm text-forest mb-2">
-                  <span aria-hidden="true" className="tracking-wide">★★★★★</span>
-                  <span className="font-mono text-xs uppercase tracking-wider font-semibold">Trusted Local Travel Partners</span>
-                </div>
-                <p className="text-sm leading-relaxed text-charcoal/90 not-italic">
-                  At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
-                </p>
-              </div>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Button href="#/contact">
@@ -70,19 +83,6 @@ export default function About() {
 
             {/* Side highlights */}
             <motion.div variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
-              {/* Summer Offer Card */}
-              <div className="group relative overflow-hidden rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-[transform,border-color] duration-500 hover:-translate-y-1 hover:border-forest/30">
-                <span className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-forest/5 blur-2xl transition-colors duration-500 group-hover:bg-forest/10" />
-                <span className="micro-label text-forest font-mono text-[10px] tracking-widest block mb-2">Exclusive Offer</span>
-                <h3 className="font-display text-xl font-semibold text-charcoal mb-3">Summer 2026 Early Booking</h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-4">
-                  Book your holiday during our Summer 2026 Early Booking Promotion and receive <strong className="text-forest text-lg">10% off</strong> selected tour packages.
-                </p>
-                <div className="text-xs text-charcoal/50 font-mono italic">
-                  * Terms and conditions apply. Contact us for details and to check availability.
-                </div>
-              </div>
-
               {/* Get in Touch Callout */}
               <div className="group rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-[border-color] duration-500 hover:border-forest/30">
                 <h3 className="font-display text-lg font-medium text-charcoal mb-3">Get in Touch</h3>

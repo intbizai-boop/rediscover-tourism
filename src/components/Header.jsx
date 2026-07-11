@@ -35,7 +35,7 @@ export default function Header({ currentPage = 'home' }) {
         >
           <img
             src="/logo-gray.webp"
-            alt="My Wellbeing Healthcare & Tourism"
+            alt="Rediscover Tourism"
             width="40"
             height="40"
             className="h-9 w-auto md:h-10"
@@ -43,9 +43,9 @@ export default function Header({ currentPage = 'home' }) {
           />
           <span
             translate="no"
-            className="font-display text-base md:text-lg tracking-wide text-charcoal"
+            className="font-display text-base md:text-lg font-medium tracking-wide text-charcoal"
           >
-            My Wellbeing <span className="text-xs md:text-sm font-light text-forest block md:inline md:ml-1">Healthcare & Tourism</span>
+            Rediscover <span className="text-forest ml-1">Tourism</span>
           </span>
         </a>
 

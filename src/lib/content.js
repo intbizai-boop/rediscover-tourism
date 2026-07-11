@@ -16,7 +16,7 @@ export const NAV_LINKS = [
 export const WHY_CARDS = [
   {
     title: 'Personal Concierge Service',
-    body: 'One dedicated travel expert from your first enquiry until you return home.',
+    body: 'Driver to meet and greet at airport, taxis for transport, and taxi drop-off at airport for departure.',
   },
   {
     title: 'Tailor-Made Itineraries',
@@ -39,7 +39,7 @@ export const WHY_CARDS = [
 export const DESTINATIONS = [
   {
     name: 'India',
-    body: 'Spiritual journeys, luxury rail holidays, wellness retreats, medical tourism, cultural experiences.',
+    body: 'Spiritual journeys, luxury rail holidays, wellness retreats, medical tourism, dental tourism, cultural experiences.',
   },
   {
     name: 'Sri Lanka',
@@ -47,7 +47,7 @@ export const DESTINATIONS = [
   },
   {
     name: 'Thailand',
-    body: 'Luxury beach resorts, island escapes, wellness retreats, dental tourism, family holidays.',
+    body: 'Luxury beach resorts, island escapes, wellness retreats, family holidays.',
   },
   {
     name: 'Nepal',
@@ -89,6 +89,15 @@ export const STEPS = [
 
 export const JOURNEY_CATEGORIES = [
   {
+    title: 'Customised Itineraries to Meet Your Holiday Needs',
+    description: 'Bespoke travel plans tailored precisely to your personal preferences, budget, and schedule.',
+    items: [
+      'Accommodation (in any star rating) and food arranged',
+      'Experiences to meet your needs',
+      'Travel within the country of destination arranged',
+    ],
+  },
+  {
     title: 'Bespoke Luxury Holidays',
     description: 'Handcrafted itineraries designed exclusively around your interests, lifestyle, and travel goals.',
     items: [
@@ -111,7 +120,7 @@ export const JOURNEY_CATEGORIES = [
   },
   {
     title: 'Health & Medical Tourism',
-    description: 'Travel with confidence for high-quality healthcare services across Asia. We help coordinate medical consultations, specialist treatments, health screenings, and recovery accommodation with trusted healthcare providers.',
+    description: 'Travel with confidence for high-quality healthcare services across India. We help coordinate medical consultations, specialist treatments, health screenings, and recovery accommodation with trusted healthcare providers.',
     items: [
       'Health screening packages',
       'Specialist consultations',
@@ -121,7 +130,7 @@ export const JOURNEY_CATEGORIES = [
   },
   {
     title: 'Dental Tourism',
-    description: 'Access internationally recognised dental clinics offering cosmetic dentistry, implants, restorative treatments, and preventative care, combined with comfortable travel and accommodation arrangements.',
+    description: 'Access internationally recognised dental clinics in India offering cosmetic dentistry, implants, restorative treatments, and preventative care, combined with comfortable travel and accommodation arrangements.',
     items: [
       'Smile makeover packages',
       'Dental implants',
@@ -131,7 +140,7 @@ export const JOURNEY_CATEGORIES = [
   },
   {
     title: 'Eco-Tourism Experiences',
-    description: 'Discover Asia responsibly through sustainable travel experiences, wildlife encounters, community-based tourism, and environmentally conscious adventures that respect local cultures and natural environments.',
+    description: 'Discover Asia responsibly through sustainable travel experiences, wildlife encounters, community engaged tourism, and environmentally conscious adventures that respect local cultures and natural environments.',
     items: [
       'Rainforest lodges',
       'Wildlife experiences',

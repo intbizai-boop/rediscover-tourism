@@ -6,6 +6,15 @@ import Button from './Button.jsx';
 
 // Premium icons matching each luxury travel category
 const ICONS = {
+  'Customised Itineraries to Meet Your Holiday Needs': (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+      <polyline points="10 9 9 9 8 9" />
+    </svg>
+  ),
   'Bespoke Luxury Holidays': (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
@@ -68,8 +77,32 @@ export default function Journeys() {
       {/* Subtle light leak backdrop */}
       <div className="pointer-events-none absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-forest/5 blur-[120px]" aria-hidden="true" />
 
-      <div className="section-shell flex flex-col gap-14">
-        <SectionHeading label="Bespoke Offerings" title="Curated Journeys">
+      <div className="section-shell relative flex flex-col gap-14">
+        {/* Stamp Link */}
+        <motion.a
+          href="#/contact"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: -5 }}
+          whileHover={{ scale: 1.08, rotate: 0 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
+          className="absolute -top-4 right-4 z-20 w-32 h-32 xs:w-[136px] xs:h-[136px] sm:w-36 sm:h-36 sm:right-6 md:-top-6 md:right-10 lg:right-16 md:w-36 md:h-36 lg:w-44 lg:h-44 cursor-pointer block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-full"
+        >
+          <img
+            src="/stamp.webp"
+            alt="10% Discount Stamp"
+            width="160"
+            height="160"
+            className="w-full h-full object-contain pointer-events-none select-none"
+          />
+        </motion.a>
+
+        <SectionHeading
+          label="Bespoke Offerings"
+          title="Curated Journeys"
+          align="items-start text-left md:items-center md:text-center md:mx-auto"
+          className="pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
+        >
           <span className="hidden md:inline">
             We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
           </span>
