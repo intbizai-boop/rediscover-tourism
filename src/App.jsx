@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import DestinationsPreview from './components/DestinationsPreview.jsx';
@@ -110,28 +109,20 @@ export default function App() {
 
       <Header currentPage={currentPage} />
       <main id="main" className="min-h-[70vh] pt-[52px] lg:pt-[40px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentPage}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            {currentPage === 'home' && (
-              <>
-                <Hero />
-                <DestinationsPreview />
-              </>
-            )}
-            {currentPage === 'about' && <About />}
-            {(currentPage === 'destinations' || currentPage === 'destination') && <Destinations />}
-            {currentPage === 'bespoke-offerings' && <Journeys />}
-            {currentPage === 'why-choose-us' && <WhyRediscover />}
-            {currentPage === 'how-it-works' && <HowItWorks />}
-            {currentPage === 'contact' && <Contact />}
-          </motion.div>
-        </AnimatePresence>
+        <div>
+          {currentPage === 'home' && (
+            <>
+              <Hero />
+              <DestinationsPreview />
+            </>
+          )}
+          {currentPage === 'about' && <About />}
+          {(currentPage === 'destinations' || currentPage === 'destination') && <Destinations />}
+          {currentPage === 'bespoke-offerings' && <Journeys />}
+          {currentPage === 'why-choose-us' && <WhyRediscover />}
+          {currentPage === 'how-it-works' && <HowItWorks />}
+          {currentPage === 'contact' && <Contact />}
+        </div>
       </main>
       <Footer />
       <WhatsAppFloat />

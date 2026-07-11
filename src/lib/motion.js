@@ -2,33 +2,28 @@ import { useReducedMotion } from 'framer-motion';
 
 /**
  * Shared Framer Motion variants for calm, Aman-style reveals.
- * Animates transform + opacity only (compositor-friendly).
- * Honors prefers-reduced-motion via the hook below.
+ * Updated to be static (no animation) per request.
  */
 export const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 0 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0 },
   },
 };
 
 export const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 1.1, ease: 'easeOut' } },
+  hidden: { opacity: 1 },
+  visible: { opacity: 1, transition: { duration: 0 } },
 };
 
 export const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0 } },
 };
 
-/** Returns variants that collapse to a simple fade when reduced motion is preferred. */
+/** Returns variants that collapse to static display. */
 export function useRevealVariants() {
-  const reduce = useReducedMotion();
-  if (reduce) {
-    return { container: fadeIn, item: fadeIn };
-  }
   return { container: stagger, item: fadeUp };
 }
