@@ -126,7 +126,7 @@ export default function Hero() {
 
             <motion.p
               variants={item}
-              className="text-pretty max-w-xl text-xs leading-relaxed text-charcoal/80 md:text-base"
+              className="hidden md:block text-pretty max-w-xl text-xs leading-relaxed text-charcoal/80 md:text-base"
             >
               Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
               an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
