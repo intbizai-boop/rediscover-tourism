@@ -1,9 +1,8 @@
-const CACHE_NAME = 'mywellbeing-cache-v12';
+const CACHE_NAME = 'mywellbeing-cache-v11';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/logo.png',
-  '/stamp.webp'
+  '/logo.png'
 ];
 
 // Install event - Cache critical static assets
