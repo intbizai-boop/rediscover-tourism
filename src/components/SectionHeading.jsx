@@ -14,7 +14,11 @@ export default function SectionHeading({
   className = '',
 }) {
   const alignment =
-    align === 'center' ? 'items-center text-center' : 'items-start text-left';
+    align === 'center'
+      ? 'items-center text-center mx-auto'
+      : align === 'left'
+      ? 'items-start text-left'
+      : align;
 
   return (
     <motion.div
@@ -22,9 +26,7 @@ export default function SectionHeading({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.4 }}
-      className={`flex max-w-2xl flex-col gap-6 ${alignment} ${
-        align === 'center' ? 'mx-auto' : ''
-      } ${className}`}
+      className={`flex max-w-2xl flex-col gap-6 ${alignment} ${className}`}
     >
       {label && <span className="micro-label">{label}</span>}
       <Tag className="text-balance font-display text-3xl font-medium leading-tight text-charcoal md:text-4xl lg:text-5xl">
