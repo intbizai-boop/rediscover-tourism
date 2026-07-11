@@ -95,16 +95,42 @@ export default function Hero() {
 
       {/* Content wrapper */}
       <div className="section-shell relative flex min-h-[100svh] flex-col pb-[32svh] pt-20 md:flex-row md:items-center md:pb-0 md:pt-0">
+        {/* Stamp Link */}
+        <motion.a
+          href="#/contact"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: -5 }}
+          whileHover={{ scale: 1.08, rotate: 0 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
+          className="absolute top-[72px] right-4 z-20 w-32 h-32 xs:w-[136px] xs:h-[136px] sm:w-36 sm:h-36 sm:right-6 md:top-24 md:right-10 lg:right-16 md:w-36 md:h-36 lg:w-44 lg:h-44 cursor-pointer block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-full"
+        >
+          <img
+            src="/stamp.webp"
+            alt="10% Discount Stamp"
+            width="160"
+            height="160"
+            className="w-full h-full object-contain pointer-events-none select-none"
+          />
+        </motion.a>
+
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="flex w-full flex-col justify-start md:max-w-xl"
+          className="flex w-full pr-[120px] xs:pr-[144px] sm:pr-[160px] md:pr-0 flex-col justify-start md:max-w-xl"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex flex-col gap-5 md:gap-6">
-            <motion.span variants={item} className="micro-label">
-              Luxury Travel. Authentic Experiences. Rediscover Thyself.
+            <motion.span
+              variants={item}
+              className="micro-label flex flex-col gap-1 text-[10px] sm:text-[11px] md:text-xs md:flex-row md:items-center md:gap-2"
+            >
+              <span>Luxury Travel</span>
+              <span className="hidden md:inline text-forest/40">•</span>
+              <span>Authentic Experiences</span>
+              <span className="hidden md:inline text-forest/40">•</span>
+              <span>Rediscover Thyself</span>
             </motion.span>
 
             <motion.h1
