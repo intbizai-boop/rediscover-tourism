@@ -11,7 +11,6 @@ import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
 import AmbientMusic from './components/AmbientMusic.jsx';
 import About from './components/About.jsx';
-import DiscountStamp from './components/DiscountStamp.jsx';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -103,8 +102,13 @@ export default function App() {
         Skip to main content
       </a>
       
+      {/* Top Discount Stamp Banner */}
+      <div className="fixed top-0 inset-x-0 z-[60] bg-[#800000] text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider shadow-sm flex items-center justify-center min-h-[40px] uppercase font-mono">
+        <span>10 percent discount for all booking upto 30th september 2026</span>
+      </div>
+
       <Header currentPage={currentPage} />
-      <main id="main" className="min-h-[70vh]">
+      <main id="main" className="min-h-[70vh] pt-[52px] lg:pt-[40px]">
         <div>
           {currentPage === 'home' && (
             <>
@@ -122,7 +126,6 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppFloat />
-      <DiscountStamp />
       <AmbientMusic />
     </>
   );
