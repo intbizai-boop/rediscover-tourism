@@ -20,7 +20,7 @@ export default function Header({ currentPage = 'home' }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ${
+      className={`fixed inset-x-0 top-[52px] lg:top-[40px] z-50 transition-[background-color,border-color] duration-300 ${
         open
           ? 'border-b border-charcoal/10 bg-ivory'
           : scrolled
@@ -97,7 +97,7 @@ export default function Header({ currentPage = 'home' }) {
       {open && (
         <div
           id="mobile-menu"
-          className="fixed inset-0 top-0 z-40 flex flex-col bg-ivory px-6 pb-10 pt-24 lg:hidden"
+          className="fixed inset-0 top-[52px] z-40 flex flex-col bg-ivory px-6 pb-10 pt-24 lg:hidden"
           style={{ overscrollBehavior: 'contain' }}
         >
           <nav aria-label="Mobile" className="flex flex-col gap-2">
