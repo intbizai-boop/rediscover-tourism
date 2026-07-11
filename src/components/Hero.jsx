@@ -95,6 +95,25 @@ export default function Hero() {
 
       {/* Content wrapper */}
       <div className="section-shell relative flex min-h-[100svh] flex-col pb-[32svh] pt-20 md:flex-row md:items-center md:pb-0 md:pt-0">
+        {/* Stamp Link */}
+        <motion.a
+          href="#/contact"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: -5 }}
+          whileHover={{ scale: 1.08, rotate: 0 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.5 }}
+          className="absolute top-[72px] right-4 z-20 w-32 h-32 xs:w-[136px] xs:h-[136px] sm:w-36 sm:h-36 sm:right-6 md:top-24 md:right-10 lg:right-16 md:w-36 md:h-36 lg:w-44 lg:h-44 cursor-pointer block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-full"
+        >
+          <img
+            src="/stamp.webp"
+            alt="10% Discount Stamp"
+            width="160"
+            height="160"
+            className="w-full h-full object-contain pointer-events-none select-none"
+          />
+        </motion.a>
+
         <motion.div
           variants={container}
           initial="hidden"
@@ -103,23 +122,30 @@ export default function Hero() {
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex flex-col gap-5 md:gap-6">
-            <motion.span variants={item} className="micro-label">
-              Luxury Travel. Authentic Experiences. Rediscover Thyself.
+            <motion.span
+              variants={item}
+              className="micro-label flex flex-col gap-1 text-[10px] sm:text-[11px] md:text-xs md:flex-row md:items-center md:gap-2 pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
+            >
+              <span>Luxury Travel</span>
+              <span className="hidden md:inline text-forest/40">•</span>
+              <span>Authentic Experiences</span>
+              <span className="hidden md:inline text-forest/40">•</span>
+              <span>Rediscover Thyself</span>
             </motion.span>
 
             <motion.h1
               variants={item}
-              className="text-balance font-display text-3xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl"
+              className="text-balance font-display text-3xl font-medium leading-[1.05] text-charcoal sm:text-5xl lg:text-6xl pr-[100px] xs:pr-[120px] sm:pr-[135px] md:pr-0"
             >
               Rediscover Thyself
               <span className="block text-forest mt-2">
-                in Extraordinary Ways
+                <span className="whitespace-nowrap">in Extraordinary</span> Ways
               </span>
             </motion.h1>
 
             <motion.h2
               variants={item}
-              className="text-pretty font-display text-lg font-medium text-forest/90 md:text-xl"
+              className="text-pretty font-display text-lg font-medium text-forest/90 md:text-xl pr-[100px] xs:pr-[120px] sm:pr-[135px] md:pr-0"
             >
               Luxury journeys designed around your passions.
             </motion.h2>
