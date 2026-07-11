@@ -102,7 +102,7 @@ export default function Hero() {
           className="flex w-full flex-col justify-start md:max-w-xl"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
-          <div className="flex flex-col gap-3.5 md:gap-6">
+          <div className="flex flex-col gap-5 md:gap-6">
             <motion.span variants={item} className="micro-label">
               Luxury Travel. Authentic Experiences. Rediscover Thyself.
             </motion.span>
