@@ -18,17 +18,9 @@ export default function Header({ currentPage = 'home' }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open.
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
-
   return (
     <header
-      className={`fixed inset-x-0 top-[52px] lg:top-[40px] z-50 transition-[background-color,backdrop-filter,border-color] duration-500 ${
+      className={`fixed inset-x-0 top-[52px] lg:top-[40px] z-50 transition-[background-color,border-color] duration-300 ${
         open
           ? 'border-b border-charcoal/10 bg-ivory'
           : scrolled
