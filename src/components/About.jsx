@@ -48,12 +48,21 @@ export default function About() {
               </p>
               
               <p>
-                My name is Nimish and I am Vinnie's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received good Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, especially in Asia.
+                My name is Nimish and I am Vinni's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received good Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, especially in Asia.
               </p>
 
+              <div className="mt-4 border-l-2 border-forest pl-5 py-1 italic bg-forest/5 rounded-r-2xl pr-4">
+                <div className="flex items-center gap-1.5 text-sm text-forest mb-2">
+                  <span aria-hidden="true" className="tracking-wide">★★★★★</span>
+                  <span className="font-mono text-xs uppercase tracking-wider font-semibold">Trusted Local Travel Partners</span>
+                </div>
+                <p className="text-sm leading-relaxed text-charcoal/90 not-italic">
+                  At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
+                </p>
+              </div>
+
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Button href="#/destination">Explore Specialised Destinations</Button>
-                <Button href="#/contact" variant="secondary">
+                <Button href="#/contact">
                   Contact Our Team
                 </Button>
               </div>

@@ -51,7 +51,7 @@ export default function DestinationsPreview() {
           {FEATURED_DESTINATIONS.map((dest) => (
             <motion.li key={dest.name} variants={fadeUp}>
               <a
-                href="#/destination"
+                href="#/destinations"
                 className="group relative block h-56 sm:h-72 md:h-80 overflow-hidden rounded-3xl border border-charcoal/10 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 focus-visible:ring-offset-ivory transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-md"
               >
                 <img
@@ -61,6 +61,7 @@ export default function DestinationsPreview() {
                   height="400"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  style={dest.name === 'India' ? { objectPosition: 'center 35%' } : undefined}
                 />
                 <div className="absolute inset-0 bg-black/40 transition-opacity duration-500 group-hover:bg-black/55" aria-hidden="true" />
                 <div className="absolute inset-0 cinematic-overlay" aria-hidden="true" />
@@ -88,7 +89,7 @@ export default function DestinationsPreview() {
           viewport={{ once: true, amount: 0.15 }}
           className="text-center mt-6"
         >
-          <Button href="#/destination" variant="primary">
+          <Button href="#/destinations" variant="primary">
             View All Destinations
           </Button>
         </motion.div>

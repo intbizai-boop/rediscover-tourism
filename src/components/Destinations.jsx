@@ -48,6 +48,7 @@ export default function Destinations() {
                     height="400"
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                    style={dest.name === 'India' ? { objectPosition: 'center 35%' } : undefined}
                   />
                   <div className="absolute inset-0 bg-black/35 transition-opacity duration-500 group-hover:bg-black/50" aria-hidden="true" />
                   <div className="absolute inset-0 cinematic-overlay" aria-hidden="true" />
@@ -88,7 +89,7 @@ export default function Destinations() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button href="#/contact">Plan Your Journey</Button>
-            <Button href="tel:07710461488" variant="secondary">Call a Specialist</Button>
+            <Button href="tel:+447541452673" variant="secondary">Call a Specialist</Button>
           </div>
         </motion.div>
       </div>

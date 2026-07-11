@@ -7,7 +7,6 @@ import WhyRediscover from './components/WhyRediscover.jsx';
 import Journeys from './components/Journeys.jsx';
 import Destinations from './components/Destinations.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
-import FinalCta from './components/FinalCta.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
@@ -41,11 +40,13 @@ export default function App() {
   // Client-side Hash Router for Page Splitting & Dynamic Document Titles
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#/', '').replace('#', '');
-      const validPages = ['home', 'about', 'destination', 'contact'];
+      let hash = window.location.hash.replace('#/', '').replace('#', '');
+      const validPages = ['home', 'about', 'destinations', 'destination', 'bespoke-offerings', 'why-choose-us', 'how-it-works', 'contact'];
       
       let pageKey = 'home';
-      if (validPages.includes(hash)) {
+      if (hash === 'destination') {
+        pageKey = 'destinations';
+      } else if (validPages.includes(hash)) {
         pageKey = hash;
       } else if (hash === '' || hash === '/') {
         pageKey = 'home';
@@ -58,8 +59,14 @@ export default function App() {
         document.title = "My Wellbeing Healthcare & Tourism · Luxury Travel & Wellness";
       } else if (pageKey === 'about') {
         document.title = "About Us · My Wellbeing Healthcare & Tourism";
-      } else if (pageKey === 'destination') {
+      } else if (pageKey === 'destinations' || pageKey === 'destination') {
         document.title = "Specialised Destinations · My Wellbeing Healthcare & Tourism";
+      } else if (pageKey === 'bespoke-offerings') {
+        document.title = "Bespoke Offerings · My Wellbeing Healthcare & Tourism";
+      } else if (pageKey === 'why-choose-us') {
+        document.title = "Why Choose Us · My Wellbeing Healthcare & Tourism";
+      } else if (pageKey === 'how-it-works') {
+        document.title = "How It Works · My Wellbeing Healthcare & Tourism";
       } else if (pageKey === 'contact') {
         document.title = "Contact Us · My Wellbeing Healthcare & Tourism";
       }
@@ -95,8 +102,14 @@ export default function App() {
       >
         Skip to main content
       </a>
+      
+      {/* Top Discount Stamp Banner */}
+      <div className="fixed top-0 inset-x-0 z-[60] bg-[#800000] text-white text-center py-2.5 px-4 text-xs font-semibold tracking-wider shadow-sm flex items-center justify-center min-h-[40px] uppercase font-mono">
+        <span>10 percent discount for all booking upto 30th september 2026</span>
+      </div>
+
       <Header currentPage={currentPage} />
-      <main id="main" className="min-h-[70vh]">
+      <main id="main" className="min-h-[70vh] pt-[52px] lg:pt-[40px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage}
@@ -109,14 +122,13 @@ export default function App() {
               <>
                 <Hero />
                 <DestinationsPreview />
-                <Journeys />
-                <WhyRediscover />
-                <HowItWorks />
-                <FinalCta />
               </>
             )}
             {currentPage === 'about' && <About />}
-            {currentPage === 'destination' && <Destinations />}
+            {(currentPage === 'destinations' || currentPage === 'destination') && <Destinations />}
+            {currentPage === 'bespoke-offerings' && <Journeys />}
+            {currentPage === 'why-choose-us' && <WhyRediscover />}
+            {currentPage === 'how-it-works' && <HowItWorks />}
             {currentPage === 'contact' && <Contact />}
           </motion.div>
         </AnimatePresence>

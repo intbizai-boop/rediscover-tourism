@@ -103,14 +103,6 @@ export default function Hero() {
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div className="flex flex-col gap-3.5 md:gap-6">
-            <motion.div
-              variants={item}
-              className="inline-flex self-start items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-3.5 py-1.5 text-[10px] font-semibold text-forest uppercase tracking-wider"
-            >
-              <span className="flex h-1.5 w-1.5 rounded-full bg-forest animate-pulse" />
-              10% Discount on Bookings Taken Till September
-            </motion.div>
-
             <motion.span variants={item} className="micro-label">
               Luxury Travel. Authentic Experiences. Rediscover Thyself.
             </motion.span>
@@ -132,10 +124,9 @@ export default function Hero() {
               Luxury journeys designed around your passions.
             </motion.h2>
 
-            {/* Desktop paragraph - hidden on mobile */}
             <motion.p
               variants={item}
-              className="hidden md:block text-pretty max-w-xl text-sm leading-relaxed text-charcoal/80 md:text-base"
+              className="text-pretty max-w-xl text-xs leading-relaxed text-charcoal/80 md:text-base"
             >
               Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
               an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
@@ -143,23 +134,11 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button href="#/destination">Explore Destinations</Button>
+              <Button href="#/destinations">Explore Destinations</Button>
               <Button href="#/contact" variant="secondary">
                 Plan Your Journey
               </Button>
             </motion.div>
-
-
-
-            <motion.p
-              variants={item}
-              className="mt-2 flex items-center gap-2 text-sm text-charcoal/70 md:mt-0"
-            >
-              <span className="text-forest" aria-hidden="true">
-                ★★★★★
-              </span>
-              Trusted Local Travel Partners
-            </motion.p>
           </div>
         </motion.div>
       </div>

@@ -141,8 +141,7 @@ export default function Journeys() {
           viewport={{ once: true, amount: 0.15 }}
           className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Button href="#/destination">Explore Specialised Destinations</Button>
-          <Button href="#/contact" variant="secondary">
+          <Button href="#/contact">
             Plan a Bespoke Journey
           </Button>
         </motion.div>

@@ -61,17 +61,7 @@ export default function WhyRediscover() {
           ))}
         </motion.ul>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="mt-12 text-center"
-        >
-          <Button href="#/about" variant="secondary">
-            Learn More About Our Story
-          </Button>
-        </motion.div>
+
       </div>
     </section>
   );

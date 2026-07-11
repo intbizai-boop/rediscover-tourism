@@ -6,8 +6,11 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '#/' },
   { label: 'About', href: '#/about' },
-  { label: 'Destination', href: '#/destination' },
-  { label: 'Contact', href: '#/contact' },
+  { label: 'Destinations', href: '#/destinations' },
+  { label: 'Bespoke Offerings', href: '#/bespoke-offerings' },
+  { label: 'Why Choose Us', href: '#/why-choose-us' },
+  { label: 'How It Works', href: '#/how-it-works' },
+  { label: 'Contact Us', href: '#/contact' },
 ];
 
 export const WHY_CARDS = [
@@ -79,8 +82,8 @@ export const DESTINATIONS = [
 
 export const STEPS = [
   { n: 1, title: 'Tell Us About Your Dream Journey' },
-  { n: 2, title: 'We Curate The Experience' },
-  { n: 3, title: 'You Arrive' },
+  { n: 2, title: 'We Curate The Experience For You' },
+  { n: 3, title: 'You Arrive At Your Destination' },
   { n: 4, title: 'We Handle The Rest' },
 ];
 

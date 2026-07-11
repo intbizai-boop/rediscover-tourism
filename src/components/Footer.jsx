@@ -29,7 +29,7 @@ export default function Footer() {
         <nav aria-label="Destinations" className="flex flex-col gap-3">
           <h2 className="micro-label mb-1 text-[#8fa892]">Destinations</h2>
           {DESTINATIONS.map((d) => (
-            <a key={d.name} href="#/destination" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">
+            <a key={d.name} href="#/destinations" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">
               {d.name}
             </a>
           ))}
@@ -45,10 +45,11 @@ export default function Footer() {
         </nav>
 
         <div className="flex flex-col gap-3">
-          <h2 className="micro-label mb-1 text-[#8fa892]">Contact</h2>
-          <span className="text-sm text-cream font-medium">Vinesh Narayan (Travel Partner)</span>
-          <a href="tel:07710461488" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">07710461488</a>
-          <a href="https://wa.me/447710461488" target="_blank" rel="noopener noreferrer" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">WhatsApp: +447710461488</a>
+          <h2 className="micro-label mb-1 text-[#8fa892]">Contact Us</h2>
+          <span className="text-sm text-cream font-medium">Vinni</span>
+          <a href="tel:+447541452673" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">+44 7541 452673</a>
+          <a href="https://wa.me/447541452673" target="_blank" rel="noopener noreferrer" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">WhatsApp: +44 7541 452673</a>
+          <a href="mailto:mywellbeinghealthcare@gmail.com" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">mywellbeinghealthcare@gmail.com</a>
         </div>
       </div>
 
