@@ -67,11 +67,11 @@ export default function About() {
               </p>
 
               <p>
-                My name is Vinnie and i am your main point of contact in the UK. I am a doctor, living in Devon. I have been working for the NHS for the last 20 years. I love travelling and I have been fortunate enough to visit different parts of India during my holidays. I also enjoy Mindfulness and Meditation, having practiced this in an ashram in South India. I also enjoy tennis and badminton in my spare time. I am also an avid dog lover.
+                My name is Vini and i am your main point of contact in the UK. I am a doctor, living in Devon. I have been working for the NHS for the last 20 years. I love travelling and I have been fortunate enough to visit different parts of India during my holidays. I also enjoy Mindfulness and Meditation, having practiced this in an ashram in South India. I also enjoy tennis and badminton in my spare time. I am also an avid dog lover.
               </p>
               
               <p>
-                My name is Nimish and I am Vinnie's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received excellent Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, having travelled all over Asia with my customers.
+                My name is Nimish and I am Vini's business partner in Asia. I was born and brought up in Kerala, South India and have been running my travel agency Blue Spice travels ltd since 2009. I currently arrange luxury, bespoke holidays covering all holiday destination in Asia including health tourism in India. I have received excellent Google reviews and have 1,000 followers on YouTube, Instagram and Facebook. I have a proven track record of delivering high quality holidays. I am passionate about my job and travelling, having travelled all over Asia with my customers.
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4">

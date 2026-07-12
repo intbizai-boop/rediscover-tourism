@@ -379,7 +379,7 @@ export default function Contact() {
                     </svg>
                     <div>
                       <p className="font-semibold text-sm">Enquiry sent successfully!</p>
-                      <p className="text-xs opacity-75 mt-0.5">Vinnie will be in touch within 24 hours.</p>
+                      <p className="text-xs opacity-75 mt-0.5">Vini will be in touch within 24 hours.</p>
                     </div>
                   </motion.div>
                 ) : (

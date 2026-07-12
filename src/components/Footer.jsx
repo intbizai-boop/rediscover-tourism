@@ -27,7 +27,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-3">
           <h2 className="micro-label mb-1 text-[#8fa892]">Contact Us</h2>
-          <span className="text-sm text-cream font-medium">Vinnie</span>
+          <span className="text-sm text-cream font-medium">Vini</span>
           <a href="tel:+447541452673" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">+44 7541 452673</a>
           <a href="https://wa.me/447541452673" target="_blank" rel="noopener noreferrer" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest whitespace-nowrap">WhatsApp: +44 7541 452673</a>
           <a href="mailto:mywellbeinghealthcare@gmail.com" className="text-sm text-cream/70 transition-colors duration-300 hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest">mywellbeinghealthcare@gmail.com</a>
