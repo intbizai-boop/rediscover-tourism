@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, stagger } from '../lib/motion.js';
 import Button from './Button.jsx';
@@ -13,13 +14,24 @@ export default function Hero() {
   const container = reduce ? {} : stagger;
   const item = reduce ? { hidden: { opacity: 1 }, visible: { opacity: 1 } } : fadeUp;
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
   return (
     <section
       aria-label="Rediscover Thyself. We take care of the rest."
       className="relative min-h-[100svh] w-full overflow-hidden bg-ivory"
     >
       {/* Desktop background video (16:9) */}
-      {!reduce ? (
+      {!isMobile && !reduce ? (
         <video
           className="absolute inset-0 hidden h-full w-full object-cover md:object-[110%_50%] md:block"
           autoPlay
@@ -34,7 +46,7 @@ export default function Hero() {
           <source src="/desktop_hero_video.webm" type="video/webm" />
           <source src="/desktop_hero_video.mp4" type="video/mp4" />
         </video>
-      ) : (
+      ) : !isMobile ? (
         <img
           src="/desktop_hero_fallback.webp"
           alt=""
@@ -45,10 +57,10 @@ export default function Hero() {
           fetchPriority="high"
           aria-hidden="true"
         />
-      )}
+      ) : null}
 
       {/* Mobile background video (9:16) */}
-      {!reduce ? (
+      {isMobile && !reduce ? (
         <video
           className="absolute inset-0 block h-full w-full object-cover object-bottom md:hidden"
           autoPlay
@@ -63,7 +75,7 @@ export default function Hero() {
           <source src="/mobile_hero_video.webm" type="video/webm" />
           <source src="/mobile_hero_video.mp4" type="video/mp4" />
         </video>
-      ) : (
+      ) : isMobile ? (
         <img
           src="/mobile_hero_fallback.webp"
           alt=""
@@ -74,7 +86,7 @@ export default function Hero() {
           fetchPriority="high"
           aria-hidden="true"
         />
-      )}
+      ) : null}
 
 
       {/* Custom overlays matching mockup: covers text solid, then fades where image subject starts */}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mywellbeing-cache-v14';
+const CACHE_NAME = 'mywellbeing-cache-v15';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -74,23 +74,27 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Cache-First Strategy for Images and Web Fonts
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-          return networkResponse;
+  const isCacheableAsset = event.request.url.match(/\.(png|jpe?g|gif|svg|webp|ico|woff2?|eot|ttf|otf)$/);
+  if (isCacheableAsset) {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
         }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
+        return fetch(event.request).then((networkResponse) => {
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            return networkResponse;
+          }
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+          return networkResponse;
+        }).catch(() => {
+          // Network failure: silent fallback
         });
-        return networkResponse;
-      }).catch(() => {
-        // Network failure: silent fallback
-      });
-    })
-  );
+      })
+    );
+    return;
+  }
 });
