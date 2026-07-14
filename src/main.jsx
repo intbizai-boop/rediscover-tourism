@@ -9,6 +9,19 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
     navigator.serviceWorker.register('/sw.js')
       .then((reg) => {
         console.log('Service Worker registered successfully on scope:', reg.scope);
+
+        // Check for updates to the service worker (Cache Busting auto-reload)
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('New content available; reloading for fresh assets.');
+                window.location.reload();
+              }
+            });
+          }
+        });
       })
       .catch((err) => {
         console.error('Service Worker registration failed:', err);
