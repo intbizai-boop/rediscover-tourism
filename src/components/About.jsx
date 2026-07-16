@@ -73,7 +73,13 @@ export default function About() {
                     <p className="text-sm font-medium text-forest mt-0.5">Director of Rediscover Tourism Limited, UK</p>
                   </div>
                   <p>
-                    My name is Vini and I am the director of Rediscover Tourism Limited. I am the customer acquisition agent for Blue Spice Limited, which is a well established travel agency in India. I will be your main point of contact in the UK. I will be helping you with travel advice and itineraries along with Nimish, the director of Blue Spice travel. I love travelling, and I have been fortunate enough to visit different parts of India. I also enjoy mindfulness and meditation, having learned this at an ashram in South India. I also enjoy playing tennis and badminton in my spare time, and I am an avid dog lover.
+                    My name is Vinesh and I am an NRI based in the UK. I am a doctor by background and have held a British passport for the last 20 years. During my time here, I have travelled extensively throughout the UK and Europe. I have visited major cities including London, Edinburgh, Manchester, the Scottish Highlands and Wales.
+                  </p>
+                  <p>
+                    Of all these cities, I like London the best as it is one of the most beautiful cities in the world. It has a fantastic vibrant atmosphere and is full of historic sites dating back to William The Conqueror in the 11th century and historic buildings like the Big Ben and Buckingham Palace. It also has a very immersive cultural scene with numerous world class museums like the National Art Gallery and the Tate Museum. It has exciting zoos, aquariums and parks perfect for families. The nightlife of London is unparalleled, and it boasts a lot of live music in pubs and numerous dance clubs. For culinary lovers, it has an interesting mix of multi cuisine food from all over the world.
+                  </p>
+                  <p>
+                    I will be more than happy to greet you at the airport and accompany and guide you on your holiday through this world famous city. I look forward to welcoming you and gifting you an unforgettable holiday.
                   </p>
                 </div>
 
