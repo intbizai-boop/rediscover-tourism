@@ -66,17 +66,17 @@ export default function About() {
                 At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
               </p>
 
-              <div>
-                <h2 className="font-display text-3xl font-semibold text-charcoal mb-10 pb-4 border-b border-charcoal/10">
+              <div className="max-w-3xl mt-6">
+                <h2 className="font-display text-2xl font-semibold text-charcoal mb-8 pb-3 border-b border-charcoal/10">
                   Meet the Team
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                <div className="flex flex-col gap-10">
                   {/* Vini Narayan */}
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     <div>
-                      <h3 className="font-display text-2xl font-semibold text-charcoal">Vini Narayan</h3>
-                      <p className="text-sm font-semibold tracking-wide text-forest mt-1">Director, Rediscover Tourism Limited (UK)</p>
+                      <h3 className="font-display text-xl font-semibold text-charcoal">Vini Narayan</h3>
+                      <p className="text-sm font-semibold text-forest mt-0.5">Director, Rediscover Tourism Limited (UK)</p>
                     </div>
                     <div className="flex flex-col gap-4 text-charcoal/70">
                       <p>
@@ -95,10 +95,10 @@ export default function About() {
                   </div>
 
                   {/* Nimish */}
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3">
                     <div>
-                      <h3 className="font-display text-2xl font-semibold text-charcoal">Nimish</h3>
-                      <p className="text-sm font-semibold tracking-wide text-forest mt-1">Director, Blue Spice Travels Limited (India)</p>
+                      <h3 className="font-display text-xl font-semibold text-charcoal">Nimish</h3>
+                      <p className="text-sm font-semibold text-forest mt-0.5">Director, Blue Spice Travels Limited (India)</p>
                     </div>
                     <div className="flex flex-col gap-4 text-charcoal/70">
                       <p>
