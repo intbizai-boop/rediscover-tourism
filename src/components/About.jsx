@@ -61,36 +61,63 @@ export default function About() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             
             {/* Primary description */}
-            <motion.div variants={fadeUp} className="lg:col-span-7 flex flex-col gap-6 text-base leading-relaxed text-charcoal/80">
-              <p>
+            <motion.div variants={fadeUp} className="lg:col-span-12 flex flex-col gap-8 text-base leading-relaxed text-charcoal/80">
+              <p className="max-w-4xl text-lg">
                 At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
               </p>
 
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-col gap-3">
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-charcoal">Vini Narayan</h3>
-                    <p className="text-sm font-medium text-forest mt-0.5">Director of Rediscover Tourism Limited, UK</p>
+              <div>
+                <h2 className="font-display text-3xl font-semibold text-charcoal mb-10 pb-4 border-b border-charcoal/10">
+                  Meet the Team
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+                  {/* Vini Narayan */}
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold text-charcoal">Vini Narayan</h3>
+                      <p className="text-sm font-semibold tracking-wide text-forest mt-1">Director, Rediscover Tourism Limited (UK)</p>
+                    </div>
+                    <div className="flex flex-col gap-4 text-charcoal/70">
+                      <p>
+                        Hello, I'm Vini, Director of Rediscover Tourism Limited. As the UK customer acquisition partner for Blue Spice Travels Limited, I am your first point of contact throughout your holiday planning journey.
+                      </p>
+                      <p>
+                        Based in the UK, I work closely with Nimish, Director of Blue Spice Travels, to help create bespoke travel experiences across Asia. I will guide you with travel advice, itinerary planning, destination recommendations, and answer any questions you may have before your trip.
+                      </p>
+                      <p>
+                        Travelling has always been one of my greatest passions, and I have been fortunate to explore many regions of India. I also have a keen interest in mindfulness and meditation, having spent time learning these practices at an ashram in South India. Outside work, I enjoy playing tennis and badminton, and I'm an enthusiastic dog lover.
+                      </p>
+                      <p>
+                        My aim is to make your travel planning simple, enjoyable, and completely stress free from your very first enquiry.
+                      </p>
+                    </div>
                   </div>
-                  <p>
-                    My name is Vinesh and I am an NRI based in the UK. I am a doctor by background and have held a British passport for the last 20 years. During my time here, I have travelled extensively throughout the UK and Europe. I have visited major cities including London, Edinburgh, Manchester, the Scottish Highlands and Wales.
-                  </p>
-                  <p>
-                    Of all these cities, I like London the best as it is one of the most beautiful cities in the world. It has a fantastic vibrant atmosphere and is full of historic sites dating back to William The Conqueror in the 11th century and historic buildings like the Big Ben and Buckingham Palace. It also has a very immersive cultural scene with numerous world class museums like the National Art Gallery and the Tate Museum. It has exciting zoos, aquariums and parks perfect for families. The nightlife of London is unparalleled, and it boasts a lot of live music in pubs and numerous dance clubs. For culinary lovers, it has an interesting mix of multi cuisine food from all over the world.
-                  </p>
-                  <p>
-                    I will be more than happy to greet you at the airport and accompany and guide you on your holiday through this world famous city. I look forward to welcoming you and gifting you an unforgettable holiday.
-                  </p>
-                </div>
 
-                <div className="flex flex-col gap-3">
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-charcoal">Nimish Sampath</h3>
-                    <p className="text-sm font-medium text-forest mt-0.5">Director of Blue Spice Travels Limited, India</p>
+                  {/* Nimish */}
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <h3 className="font-display text-2xl font-semibold text-charcoal">Nimish</h3>
+                      <p className="text-sm font-semibold tracking-wide text-forest mt-1">Director, Blue Spice Travels Limited (India)</p>
+                    </div>
+                    <div className="flex flex-col gap-4 text-charcoal/70">
+                      <p>
+                        Hello, I'm Nimish, Director of Blue Spice Travels Limited and Vini's business partner in India. I will be your main point of contact once you arrive in Asia.
+                      </p>
+                      <p>
+                        I oversee all ground operations, ensuring every part of your holiday runs smoothly. From airport transfers, hotels, transport and dining to authentic local experiences, my team and I take care of every detail so that you can simply relax and enjoy your journey.
+                      </p>
+                      <p>
+                        Born and raised in Kerala, South India, I founded Blue Spice Travels Limited in 2009. Since then, we have specialised in creating bespoke holidays across Asia, with extensive expertise throughout India and neighbouring destinations.
+                      </p>
+                      <p>
+                        Over the years, we have built a strong reputation for delivering exceptional travel experiences to guests from around the world. We are proud of our excellent Google reviews and our growing community of more than 1,000 followers across YouTube, Instagram, and Facebook.
+                      </p>
+                      <p>
+                        Travel is more than my profession. It is my passion. I look forward to welcoming you to Asia and helping you discover unforgettable destinations, authentic cultures, and experiences that will stay with you for a lifetime.
+                      </p>
+                    </div>
                   </div>
-                  <p>
-                    My name is Nimish, and I am Vini's business partner in India, and I will be your main point of contact in Asia. I will be handling all the ground operations at your destination including taxis, hotels, food, and local experiences. I was born and brought up in Kerala, South India, and have been running my travel agency Blue Spice Travels Limited since 2009. I currently arrange bespoke holidays covering holiday destinations across Asia including all parts of India. I have received good Google reviews and have 1,000 followers across YouTube, Instagram, and Facebook. I have a proven track record of delivering high quality holiday experiences to customers all over the world. I am passionate about my job and love travelling, especially in Asia.
-                  </p>
                 </div>
               </div>
 
@@ -98,24 +125,6 @@ export default function About() {
                 <Button href="#/contact">
                   Contact Our Team
                 </Button>
-              </div>
-            </motion.div>
-
-            {/* Side highlights */}
-            <motion.div variants={fadeUp} className="lg:col-span-5 flex flex-col gap-6">
-              {/* Get in Touch Callout */}
-              <div className="group rounded-3xl border border-charcoal/10 bg-sand p-8 shadow-sm transition-[border-color] duration-500 hover:border-forest/30">
-                <h3 className="font-display text-lg font-medium text-charcoal mb-3">Get in Touch</h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-5">
-                  If you have any questions or would like to start planning your journey, please complete the contact form or call us directly. We respond to all enquiries within 24 hours.
-                </p>
-                <a
-                  href="#/contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-forest/80 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-md"
-                >
-                  Start planning your journey
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
               </div>
             </motion.div>
 
