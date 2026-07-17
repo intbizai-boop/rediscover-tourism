@@ -166,9 +166,9 @@ export default function Hero() {
               variants={item}
               className="hidden md:block text-pretty max-w-xl text-xs leading-relaxed text-charcoal/80 md:text-base"
             >
-              Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India,
-              an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia,
-              My Wellbeing Healthcare & Tourism creates bespoke experiences tailored to your individual travel aspirations.
+              Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, a cultural adventure in India,
+              an exclusive beach escape in Thailand, or a journey through the hidden treasures of Asia,
+              Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">

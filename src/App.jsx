@@ -55,19 +55,19 @@ export default function App() {
 
       // Dynamic document title update based on current page
       if (pageKey === 'home') {
-        document.title = "My Wellbeing Healthcare & Tourism · Luxury Travel & Wellness";
+        document.title = "Rediscover Tourism · Luxury Travel & Wellness";
       } else if (pageKey === 'about') {
-        document.title = "About Us · My Wellbeing Healthcare & Tourism";
+        document.title = "About Us · Rediscover Tourism";
       } else if (pageKey === 'destinations' || pageKey === 'destination') {
-        document.title = "Specialised Destinations · My Wellbeing Healthcare & Tourism";
+        document.title = "Specialised Destinations · Rediscover Tourism";
       } else if (pageKey === 'bespoke-offerings') {
-        document.title = "Bespoke Offerings · My Wellbeing Healthcare & Tourism";
+        document.title = "Bespoke Offerings · Rediscover Tourism";
       } else if (pageKey === 'why-choose-us') {
-        document.title = "Why Choose Us · My Wellbeing Healthcare & Tourism";
+        document.title = "Why Choose Us · Rediscover Tourism";
       } else if (pageKey === 'how-it-works') {
-        document.title = "How It Works · My Wellbeing Healthcare & Tourism";
+        document.title = "How It Works · Rediscover Tourism";
       } else if (pageKey === 'contact') {
-        document.title = "Contact Us · My Wellbeing Healthcare & Tourism";
+        document.title = "Contact Us · Rediscover Tourism";
       }
 
       if (validPages.includes(hash) || hash === '' || hash === '/') {

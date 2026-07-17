@@ -51,7 +51,7 @@ export default function Contact() {
         body: JSON.stringify({
           access_key: '79714c94-d222-41c0-8b5c-ffa6bc0abfdd',
           subject: `New Travel Enquiry from ${form.name}`,
-          from_name: 'My Wellbeing Healthcare & Tourism Contact Form',
+          from_name: 'Rediscover Tourism Contact Form',
           ...form,
         }),
       });

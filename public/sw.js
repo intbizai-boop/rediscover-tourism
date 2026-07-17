@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mywellbeing-cache-v21';
+const CACHE_NAME = 'rediscover-tourism-cache-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

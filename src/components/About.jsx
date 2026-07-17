@@ -46,8 +46,8 @@ export default function About() {
               variants={fadeUp}
               className="font-display text-4xl font-semibold leading-tight text-charcoal sm:text-5xl lg:text-6xl"
             >
-              Welcome to My Wellbeing <br />
-              <span className="text-forest">Healthcare & Tourism</span>
+              Welcome to <br />
+              <span className="text-forest">Rediscover Tourism</span>
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -63,7 +63,7 @@ export default function About() {
             {/* Primary description */}
             <motion.div variants={fadeUp} className="lg:col-span-12 flex flex-col gap-8 text-base leading-relaxed text-charcoal/80">
               <p className="max-w-4xl text-lg">
-                At My Wellbeing Healthcare & Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, exploration, or healthcare, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
+                At Rediscover Tourism, we don’t simply arrange holidays. We create meaningful journeys that enrich lives, restore wellbeing, and connect travellers with the remarkable cultures, landscapes, and people of Asia. Whether your goal is relaxation, rejuvenation, or exploration, we are committed to delivering a seamless, luxurious, and deeply personal travel experience from beginning to end.
               </p>
 
               <div className="max-w-3xl mt-6">
@@ -76,11 +76,11 @@ export default function About() {
                   <div className="flex flex-col gap-3">
                     <div>
                       <h3 className="font-display text-xl font-semibold text-charcoal">Vini Narayan</h3>
-                      <p className="text-sm font-semibold text-forest mt-0.5">Director, Rediscover Tourism Limited (UK)</p>
+                      <p className="text-sm font-semibold text-forest mt-0.5">Director</p>
                     </div>
                     <div className="flex flex-col gap-4 text-charcoal/70">
                       <p>
-                        Hello, I'm Vini, Director of Rediscover Tourism Limited. As the UK customer acquisition partner for Blue Spice Travels Limited, I am your first point of contact throughout your holiday planning journey.
+                        Hello, I am Vini, and I am your first point of contact throughout your holiday planning in the UK.
                       </p>
                       <p>
                         Based in the UK, I work closely with Nimish, Director of Blue Spice Travels, to help create bespoke travel experiences across Asia. I will guide you with travel advice, itinerary planning, destination recommendations, and answer any questions you may have before your trip.
@@ -102,7 +102,7 @@ export default function About() {
                     </div>
                     <div className="flex flex-col gap-4 text-charcoal/70">
                       <p>
-                        Hello, I'm Nimish, Director of Blue Spice Travels Limited and Vini's business partner in India. I will be your main point of contact once you arrive in Asia.
+                        Hello, I'm Nimish, Director of Blue Spice Travels Limited and Vini's associate in India. I will be your main point of contact once you arrive in Asia.
                       </p>
                       <p>
                         I oversee all ground operations, ensuring every part of your holiday runs smoothly. From airport transfers, hotels, transport and dining to authentic local experiences, my team and I take care of every detail so that you can simply relax and enjoy your journey.

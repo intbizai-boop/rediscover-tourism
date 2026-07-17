@@ -39,25 +39,7 @@ const ICONS = {
       <path d="M 12 14 v 6" />
     </svg>
   ),
-  'Health & Medical Tourism': (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-    </svg>
-  ),
-  'Dental Tourism': (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <defs>
-        <mask id="dental-tooth-mask">
-          <rect x="0" y="0" width="24" height="24" fill="white" />
-          <path d="M 15.5 7.5 h 2.5 v -2.5 h 2.5 v 2.5 h 2.5 v 2.5 h -2.5 v 2.5 h -2.5 v -2.5 h -2.5 Z" fill="black" />
-        </mask>
-      </defs>
-      {/* Tooth shape, masked to prevent overlap with the medical cross */}
-      <path d="M 10 5 C 7.5 5, 5.5 6.5, 5.5 9 C 5.5 12, 7 13.5, 7 15.5 C 7 18, 5.5 19.5, 7.5 19.5 C 9 19.5, 9.5 18, 10.5 18 C 11.5 18, 12 19.5, 13.5 19.5 C 15.5 19.5, 14.5 18, 14.5 15.5 C 14.5 13.5, 16 12, 16 9 C 16 6.5, 14 5, 11.5 5 C 11 5, 10.5 5, 10 5 Z" mask="url(#dental-tooth-mask)" />
-      {/* Medical Cross */}
-      <path d="M 15.5 7.5 h 2.5 v -2.5 h 2.5 v 2.5 h 2.5 v 2.5 h -2.5 v 2.5 h -2.5 v -2.5 h -2.5 Z" />
-    </svg>
-  ),
+
   'Eco-Tourism Experiences': (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M20 4c-3.5 0-8 2.5-11 6.5C6 14.5 4 19 4 20c1 0 5.5-2 9.5-5 4-3 6.5-7.5 6.5-11z" />
@@ -104,10 +86,10 @@ export default function Journeys() {
           className="pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
         >
           <span className="hidden md:inline">
-            We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats and specialist medical travel, every itinerary is carefully designed around you.
+            We create bespoke journeys across Asia for travellers seeking exceptional experiences, personalised service, and unforgettable memories. From private cultural tours and luxury escapes to wellness retreats, every itinerary is carefully designed around you.
           </span>
           <span className="inline md:hidden">
-            Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, world-class healthcare in India, an exclusive beach escape in Thailand, or a cultural adventure through the hidden treasures of Asia, My Wellbeing Healthcare & Tourism creates bespoke experiences tailored to your individual travel aspirations.
+            Whether you’re seeking a rejuvenating wellness retreat in Sri Lanka, a cultural adventure in India, an exclusive beach escape in Thailand, or a journey through the hidden treasures of Asia, Rediscover Tourism creates bespoke experiences tailored to your individual travel aspirations.
           </span>
         </SectionHeading>
 

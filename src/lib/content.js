@@ -39,7 +39,7 @@ export const WHY_CARDS = [
 export const DESTINATIONS = [
   {
     name: 'India',
-    body: 'Spiritual journeys, luxury rail holidays, wellness retreats, medical tourism, dental tourism, cultural experiences.',
+    body: 'Spiritual journeys, luxury rail holidays, wellness retreats, cultural experiences.',
   },
   {
     name: 'Sri Lanka',
@@ -47,7 +47,7 @@ export const DESTINATIONS = [
   },
   {
     name: 'Thailand',
-    body: 'Luxury beach resorts, island escapes, wellness retreats, family holidays.',
+    body: 'Luxury beach resorts, island escapes, vibrant night life, unspoilt beaches, family holidays.',
   },
   {
     name: 'Nepal',
@@ -116,26 +116,6 @@ export const JOURNEY_CATEGORIES = [
       'Meditation retreats',
       'Ayurvedic healing',
       'Holistic wellbeing programmes',
-    ],
-  },
-  {
-    title: 'Health & Medical Tourism',
-    description: 'Travel with confidence for high-quality healthcare services across India. We help coordinate medical consultations, specialist treatments, health screenings, and recovery accommodation with trusted healthcare providers.',
-    items: [
-      'Health screening packages',
-      'Specialist consultations',
-      'Recovery holidays',
-      'Executive health programmes',
-    ],
-  },
-  {
-    title: 'Dental Tourism',
-    description: 'Access internationally recognised dental clinics in India offering cosmetic dentistry, implants, restorative treatments, and preventative care, combined with comfortable travel and accommodation arrangements.',
-    items: [
-      'Smile makeover packages',
-      'Dental implants',
-      'Cosmetic dentistry',
-      'Routine dental care with luxury accommodation',
     ],
   },
   {
