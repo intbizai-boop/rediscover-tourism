@@ -141,7 +141,7 @@ export default function Journeys() {
                   href="#/contact"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-forest transition-[color,transform] duration-300 hover:text-forest/80 group-hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:rounded-md"
                 >
-                  Inquire About This Journey
+                  Enquire About This Journey
                   <span aria-hidden="true">→</span>
                 </a>
               </div>

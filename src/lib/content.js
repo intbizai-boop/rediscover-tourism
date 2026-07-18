@@ -81,22 +81,14 @@ export const DESTINATIONS = [
 ];
 
 export const STEPS = [
-  { n: 1, title: 'Tell Us About Your Dream Journey' },
+  { n: 1, title: 'You Tell Us About Your Dream Journey' },
   { n: 2, title: 'We Curate The Experience For You' },
   { n: 3, title: 'You Arrive At Your Destination' },
   { n: 4, title: 'We Handle The Rest' },
+  { n: 5, title: 'We Drop You Off at the Airport for Departure' },
 ];
 
 export const JOURNEY_CATEGORIES = [
-  {
-    title: 'Customised Itineraries to Meet Your Holiday Needs',
-    description: 'Bespoke travel plans tailored precisely to your personal preferences, budget, and schedule.',
-    items: [
-      'Accommodation (in any star rating) and food arranged',
-      'Experiences to meet your needs',
-      'Travel within the country of destination arranged',
-    ],
-  },
   {
     title: 'Bespoke Luxury Holidays',
     description: 'Handcrafted itineraries designed exclusively around your interests, lifestyle, and travel goals.',
@@ -137,6 +129,15 @@ export const JOURNEY_CATEGORIES = [
       'Luxury beach resorts',
       'Cruises',
       'Exclusive local experiences',
+    ],
+  },
+  {
+    title: 'Customised Itineraries to Meet Your Holiday Needs',
+    description: 'Bespoke travel plans tailored precisely to your personal preferences, budget, and schedule.',
+    items: [
+      'Accommodation (of any star rating) and food arranged',
+      'Experiences to meet your needs',
+      'Travel within the country of destination arranged',
     ],
   },
 ];

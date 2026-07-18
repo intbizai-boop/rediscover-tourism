@@ -31,16 +31,14 @@ export default function HowItWorks() {
           title="A Simpler Way To Travel"
           align="items-start text-left md:items-center md:text-center md:mx-auto"
           className="pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
-        >
-          Four unhurried steps between your first thought and your arrival.
-        </SectionHeading>
+        />
 
         <motion.ol
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
+          className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5"
         >
           {STEPS.map((step) => (
             <motion.li key={step.n} variants={fadeUp} className="relative flex flex-col gap-4">

@@ -119,8 +119,7 @@ export default function Contact() {
           align="items-start text-left md:items-center md:text-center md:mx-auto"
           className="mb-20 pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"
         >
-          Tell us your dream, we&apos;ll craft every detail. Fill in your travel requirements
-          below; our dedicated specialists will respond with a bespoke itinerary within 24 hours.
+          Tell us your dream ; we&apos;ll craft every detail. Fill in your travel requirements below, and our dedicated specialists will respond  within 24 hours.
         </SectionHeading>
 
         <motion.form
@@ -219,7 +218,7 @@ export default function Contact() {
                 name="travelDates"
                 type="text"
                 autocomplete="off"
-                placeholder="e.g. 10 Oct – 20 Oct 2025…"
+                placeholder=""
                 value={form.travelDates}
                 onChange={set('travelDates')}
                 className={inputClass}

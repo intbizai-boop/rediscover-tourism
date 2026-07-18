@@ -53,7 +53,7 @@ export default function WhyRediscover() {
         </motion.a>
 
         <SectionHeading
-          label="Why Us"
+          label="Why Choose Us"
           title="Why Choose Rediscover Tourism?"
           align="items-start text-left md:items-center md:text-center md:mx-auto"
           className="pr-[110px] xs:pr-[130px] sm:pr-[145px] md:pr-0"

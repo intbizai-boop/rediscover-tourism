@@ -9,7 +9,6 @@ import HowItWorks from './components/HowItWorks.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
-import AmbientMusic from './components/AmbientMusic.jsx';
 import About from './components/About.jsx';
 
 export default function App() {
@@ -121,7 +120,6 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppFloat />
-      <AmbientMusic />
     </>
   );
 }
