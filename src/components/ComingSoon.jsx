@@ -170,7 +170,7 @@ export default function ComingSoon() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '79714c94-d222-41c0-8b5c-ffa6bc0abfdd',
+          access_key: '435d48fd-6177-46dd-a24e-ec65692538dc',
           subject: 'New Waitlist Sign Up',
           from_name: 'mywellbeinghealthcare.co.uk Waitlist',
           email: email,

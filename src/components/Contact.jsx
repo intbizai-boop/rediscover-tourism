@@ -48,7 +48,7 @@ export default function Contact() {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '79714c94-d222-41c0-8b5c-ffa6bc0abfdd',
+          access_key: '435d48fd-6177-46dd-a24e-ec65692538dc',
           subject: `New Travel Enquiry from ${form.name}`,
           from_name: 'Rediscover Tourism Contact Form',
           ...form,
