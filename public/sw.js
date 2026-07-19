@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rediscover-tourism-cache-v1';
+const CACHE_NAME = 'rediscover-tourism-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -6,12 +6,26 @@ const ASSETS_TO_CACHE = [
   '/stamp.webp'
 ];
 
-// Install event - Cache critical static assets
+// Install event - Cache critical static assets with cache-busting
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Service Worker] Caching static assets');
-      return cache.addAll(ASSETS_TO_CACHE);
+      console.log('[Service Worker] Caching static assets (cache-busting)');
+      const cacheBustPromises = ASSETS_TO_CACHE.map((url) => {
+        // Append a timestamp parameter to force the browser to bypass HTTP cache
+        const bustUrl = new URL(url, self.location.href);
+        bustUrl.searchParams.set('_cb', Date.now().toString());
+        
+        return fetch(new Request(bustUrl.toString(), { cache: 'reload' }))
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Failed to fetch ${url} (status: ${response.status})`);
+            }
+            // Cache the response under the original clean URL
+            return cache.put(url, response);
+          });
+      });
+      return Promise.all(cacheBustPromises);
     }).then(() => self.skipWaiting())
   );
 });
@@ -58,7 +72,9 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       caches.open(CACHE_NAME).then((cache) => {
         return cache.match(event.request).then((cachedResponse) => {
-          const fetchPromise = fetch(event.request).then((networkResponse) => {
+          // Bypass browser HTTP cache for the background fetch update to prevent serving/caching stale content
+          const fetchRequest = new Request(event.request.url, { cache: 'reload' });
+          const fetchPromise = fetch(fetchRequest).then((networkResponse) => {
             if (networkResponse.status === 200) {
               cache.put(event.request, networkResponse.clone());
             }

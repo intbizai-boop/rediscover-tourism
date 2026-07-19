@@ -10,6 +10,9 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
       .then((reg) => {
         console.log('Service Worker registered successfully on scope:', reg.scope);
 
+        // Force check for service worker updates immediately on page load
+        reg.update();
+
         // Check for updates to the service worker (Cache Busting auto-reload)
         reg.addEventListener('updatefound', () => {
           const newWorker = reg.installing;

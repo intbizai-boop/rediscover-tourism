@@ -24,7 +24,6 @@ export default function Contact() {
     children: '',
     childrenAges: '',
     rooms: '',
-    travelDates: '',
     duration: '',
     facilities: '',
     specialRequests: '',
@@ -83,7 +82,6 @@ export default function Contact() {
         children: '',
         childrenAges: '',
         rooms: '',
-        travelDates: '',
         duration: '',
         facilities: '',
         specialRequests: '',
@@ -222,19 +220,6 @@ export default function Contact() {
               />
             </motion.div>
 
-            <motion.div variants={fadeUp}>
-              <label htmlFor="ct-travel-dates" className={labelClass}>Travel Dates</label>
-              <input
-                id="ct-travel-dates"
-                name="travelDates"
-                type="text"
-                autocomplete="off"
-                placeholder=""
-                value={form.travelDates}
-                onChange={set('travelDates')}
-                className={inputClass}
-              />
-            </motion.div>
 
             <motion.div variants={fadeUp}>
               <label htmlFor="ct-duration" className={labelClass}>Duration of Tour</label>
