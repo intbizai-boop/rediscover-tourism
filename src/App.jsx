@@ -37,6 +37,8 @@ export default function App() {
 
   // Client-side Hash Router for Page Splitting & Dynamic Document Titles
   useEffect(() => {
+    let isInitial = true;
+
     const handleHashChange = () => {
       let hash = window.location.hash.replace('#/', '').replace('#', '');
       const validPages = ['home', 'about', 'destinations', 'destination', 'bespoke-offerings', 'why-choose-us', 'how-it-works', 'contact'];
@@ -68,6 +70,14 @@ export default function App() {
       } else if (pageKey === 'contact') {
         document.title = "Contact Us · Rediscover Tourism";
       }
+
+      // Track pageview manually on subsequent hash navigations (Umami does not track SPA custom hash changes as pageviews by default)
+      if (!isInitial) {
+        if (window.umami && typeof window.umami.track === 'function') {
+          window.umami.track();
+        }
+      }
+      isInitial = false;
 
       if (validPages.includes(hash) || hash === '' || hash === '/') {
         window.scrollTo({ top: 0, behavior: 'instant' });
