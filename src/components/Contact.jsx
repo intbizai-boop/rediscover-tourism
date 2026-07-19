@@ -63,6 +63,17 @@ export default function Contact() {
       }
 
       setStatus('success');
+      
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track('contact-form-submission-success', {
+          destination: form.destination,
+          duration: form.duration,
+          rooms: form.rooms,
+          adults: form.adults,
+          children: form.children
+        });
+      }
+
       setForm({
         name: '',
         email: '',

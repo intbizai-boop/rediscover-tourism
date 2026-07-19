@@ -92,6 +92,74 @@ export default function App() {
     };
   }, []);
 
+  // Umami Analytics Event & Heartbeat Tracking
+  useEffect(() => {
+    // 1. Global click tracking for CTA buttons and links
+    const handleGlobalClick = (event) => {
+      const target = event.target.closest('button, a, [role="button"], [data-umami-event]');
+      if (!target) return;
+
+      // Extract descriptive name for the event
+      const eventName = target.getAttribute('data-umami-event') || 
+                        target.innerText?.trim().slice(0, 50) || 
+                        target.getAttribute('aria-label') ||
+                        target.id || 
+                        target.href || 
+                        'Click';
+
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track(eventName, {
+          type: target.tagName.toLowerCase(),
+          text: target.innerText?.trim().slice(0, 100) || undefined,
+          id: target.id || undefined,
+          href: target.href || undefined,
+          path: window.location.pathname + window.location.hash
+        });
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick);
+
+    // 2. Heartbeat Ping to update page visit duration and prevent inaccurate bounces
+    let intervalId;
+    let lastActivityTime = Date.now();
+
+    const handleActivity = () => {
+      lastActivityTime = Date.now();
+    };
+
+    // Track activity markers
+    window.addEventListener('mousemove', handleActivity);
+    window.addEventListener('scroll', handleActivity);
+    window.addEventListener('keydown', handleActivity);
+    window.addEventListener('click', handleActivity);
+
+    // Trigger heartbeat ping every 15 seconds if tab is active and visible
+    intervalId = setInterval(() => {
+      const isVisible = document.visibilityState === 'visible';
+      const wasActiveRecently = Date.now() - lastActivityTime < 60000; // Active within the last minute
+
+      if (isVisible && wasActiveRecently) {
+        if (window.umami && typeof window.umami.track === 'function') {
+          window.umami.track('heartbeat', {
+            url: window.location.href,
+            path: window.location.pathname + window.location.hash
+          });
+        }
+      }
+    }, 15000);
+
+    return () => {
+      document.removeEventListener('click', handleGlobalClick);
+      clearInterval(intervalId);
+      window.removeEventListener('mousemove', handleActivity);
+      window.removeEventListener('scroll', handleActivity);
+      window.removeEventListener('keydown', handleActivity);
+      window.removeEventListener('click', handleActivity);
+    };
+  }, []);
+
+
   return (
     <>
       <a
