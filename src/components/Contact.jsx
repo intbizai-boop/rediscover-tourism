@@ -343,14 +343,14 @@ export default function Contact() {
 
             <motion.div variants={fadeUp} className="md:col-span-2">
               <label htmlFor="ct-requests" className={labelClass}>
-                Dietary requirements, allergies, accessibility needs, special occasions or any other requests
+                Please tell us a bit about what you want to experience
               </label>
               <textarea
                 id="ct-requests"
                 name="specialRequests"
                 rows={4}
                 autocomplete="off"
-                placeholder="e.g. Vegetarian meals, food allergies, anniversary surprise, wheelchair access…"
+                placeholder=""
                 value={form.specialRequests}
                 onChange={set('specialRequests')}
                 className={`${inputClass} resize-none leading-relaxed`}
